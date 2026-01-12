@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* AstroJaya Theme Variables */
+@theme {
+  --color-astro-dark: #0f172a;  /* Raat ka andhera */
+  --color-astro-gold: #fbbf24;  /* Sone ki chamak */
+  --color-astro-purple: #581c87; /* Mystical vibe */
+  
+  --font-display: "Cinzel", serif; /* Heading font */
+  --font-body: "Inter", sans-serif; /* Reading font */
+}
+
+/* Global Styles */
+body {
+  background-color: var(--color-astro-dark);
+  color: white;
+  font-family: var(--font-body);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-astro-gold);
+}
