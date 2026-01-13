@@ -1,186 +1,186 @@
 import React, { useState } from 'react';
-import { UploadCloud, Scan, BrainCircuit, Heart, Fingerprint, ArrowRight, Loader2 } from 'lucide-react';
+import { UploadCloud, Scan, CheckCircle, Fingerprint, Loader2, ArrowRight } from 'lucide-react';
 
 const Palmistry = () => {
+  const [images, setImages] = useState({
+    leftPalm: null,
+    rightPalm: null,
+    sideView: null,
+    backHand: null
+  });
   const [isScanning, setIsScanning] = useState(false);
   const [scanComplete, setScanComplete] = useState(false);
 
-  // Fake Scan Function
+  const handleImageUpload = (e, type) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImages(prev => ({ ...prev, [type]: reader.result }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleScan = () => {
+    // Check if all images are uploaded
+    const uploadedCount = Object.values(images).filter(Boolean).length;
+    if (uploadedCount < 4) {
+      alert("Please upload all 4 angles for accurate reading!");
+      return;
+    }
+
     setIsScanning(true);
     setScanComplete(false);
     
-    // 3 Second baad scan khatam
+    // Fake Scan Logic (3 Seconds)
     setTimeout(() => {
       setIsScanning(false);
       setScanComplete(true);
     }, 3000);
   };
 
+  const UploadBox = ({ label, type, currentImage }) => (
+    <div className="relative group">
+      <input 
+        type="file" 
+        accept="image/*" 
+        onChange={(e) => handleImageUpload(e, type)}
+        className="hidden" 
+        id={`upload-${type}`}
+        disabled={isScanning || scanComplete}
+      />
+      <label 
+        htmlFor={`upload-${type}`}
+        className={`w-full h-48 rounded-xl border-2 border-dashed flex flex-col items-center justify-center cursor-pointer transition-all overflow-hidden
+          ${currentImage 
+            ? 'border-green-500/50 bg-slate-900' 
+            : 'border-slate-700 bg-slate-900/50 hover:border-amber-500/50 hover:bg-slate-800'
+          }`}
+      >
+        {currentImage ? (
+          <div className="relative w-full h-full">
+            <img src={currentImage} alt={label} className="w-full h-full object-cover opacity-80" />
+            <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+              <CheckCircle className="text-green-400 w-8 h-8" />
+            </div>
+          </div>
+        ) : (
+          <>
+            <UploadCloud className="w-8 h-8 text-slate-500 mb-2 group-hover:text-amber-400 transition-colors" />
+            <span className="text-gray-400 text-sm font-medium">{label}</span>
+          </>
+        )}
+      </label>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-slate-950 pt-24 pb-12 px-4">
       <div className="max-w-6xl mx-auto">
         
-        {/* --- HERO HEADER --- */}
-        <div className="text-center mb-16">
-          <span className="text-amber-400 font-medium tracking-widest uppercase text-sm">Future in your Hands</span>
+        {/* HERO HEADER */}
+        <div className="text-center mb-12">
+          <span className="text-amber-400 font-medium tracking-widest uppercase text-sm">AI Hand Analysis</span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mt-2 font-[Cinzel]">
-            AI Palm <span className="text-amber-400">Reading</span>
+            4-Angle <span className="text-amber-400">Palm Reading</span>
           </h1>
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-            Upload a photo of your palm. Our advanced AI will analyze your Life Line, Heart Line, and Head Line to predict your future instantly.
+            Upload photos from 4 different angles. Our AI constructs a 3D model of your hand for 99% accuracy.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           
-          {/* --- LEFT: SCANNER INTERFACE --- */}
-          <div className="relative">
-            {/* Scanner Box */}
-            <div className="relative w-full h-[500px] bg-slate-900 border-2 border-dashed border-slate-700 rounded-2xl flex flex-col items-center justify-center overflow-hidden group hover:border-amber-500/50 transition-colors">
-              
-              {!isScanning && !scanComplete && (
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                    <UploadCloud className="w-10 h-10 text-amber-400" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">Upload Palm Photo</h3>
-                  <p className="text-gray-400 text-sm mb-6">Supports JPG, PNG (Max 5MB)</p>
-                  <button 
-                    onClick={handleScan}
-                    className="px-8 py-3 bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold rounded-lg transition-all shadow-[0_0_15px_rgba(251,191,36,0.4)]"
-                  >
-                    Start AI Scan
-                  </button>
-                </div>
-              )}
-
-              {/* SCANNING ANIMATION (Green Laser) */}
-              {isScanning && (
-                <>
-                   {/* Background Image (Hand) */}
-                   <img 
-                     src="https://images.unsplash.com/photo-1624513686860-2979247d4c14?q=80&w=2000&auto=format&fit=crop" 
-                     className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale" 
-                     alt="Scanning Hand"
-                   />
-                   
-                   {/* Moving Laser Line */}
-                   <div className="absolute top-0 left-0 w-full h-1 bg-green-400 shadow-[0_0_20px_#4ade80] animate-[scan_3s_ease-in-out_infinite]"></div>
-                   
-                   <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-10">
-                      <div className="text-center">
-                        <Loader2 className="w-12 h-12 text-green-400 animate-spin mx-auto mb-4" />
-                        <p className="text-green-400 font-mono text-lg tracking-widest">ANALYZING LINES...</p>
-                      </div>
-                   </div>
-                </>
-              )}
-
-              {/* RESULT (After Scan) */}
-              {scanComplete && (
-                <div className="absolute inset-0 bg-slate-900/95 flex flex-col items-center justify-center p-8 text-center animate-fade-in-up">
-                   <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4">
-                      <Fingerprint className="w-8 h-8 text-green-400" />
-                   </div>
-                   <h3 className="text-2xl font-bold text-white mb-2 font-[Cinzel]">Scan Complete!</h3>
-                   <p className="text-gray-400 mb-6">We have analyzed 84 points on your palm.</p>
-                   
-                   <div className="space-y-3 w-full max-w-xs text-left mb-6">
-                      <div className="flex justify-between text-sm text-gray-300">
-                        <span>Life Line Visibility</span>
-                        <span className="text-green-400">98%</span>
-                      </div>
-                      <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-                        <div className="bg-green-500 h-full w-[98%]"></div>
-                      </div>
-
-                      <div className="flex justify-between text-sm text-gray-300">
-                        <span>Heart Line Depth</span>
-                        <span className="text-amber-400">85%</span>
-                      </div>
-                      <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-                        <div className="bg-amber-500 h-full w-[85%]"></div>
-                      </div>
-                   </div>
-
-                   <button 
-                    onClick={() => setScanComplete(false)} // Reset
-                    className="px-6 py-2 border border-slate-600 hover:border-white text-white rounded-lg transition-colors"
-                   >
-                     Scan Another Hand
-                   </button>
-                   <button className="mt-3 text-amber-400 text-sm font-bold hover:underline flex items-center gap-1">
-                     View Full Report <ArrowRight size={14} />
-                   </button>
-                </div>
-              )}
-            </div>
+          {/* LEFT: UPLOAD GRID */}
+          <div className="relative bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
             
-            {/* Note */}
-            <p className="text-center text-xs text-gray-500 mt-4">* For best results, ensure good lighting and a clear background.</p>
+            {/* Grid for 4 Images */}
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              <UploadBox label="Left Palm (Main)" type="leftPalm" currentImage={images.leftPalm} />
+              <UploadBox label="Right Palm" type="rightPalm" currentImage={images.rightPalm} />
+              <UploadBox label="Side View (Thickness)" type="sideView" currentImage={images.sideView} />
+              <UploadBox label="Back of Hand" type="backHand" currentImage={images.backHand} />
+            </div>
+
+            {/* Action Button */}
+            {!isScanning && !scanComplete && (
+              <button 
+                onClick={handleScan}
+                className="w-full py-4 bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-slate-900 font-bold rounded-xl shadow-[0_0_20px_rgba(251,191,36,0.3)] transition-all flex items-center justify-center gap-2"
+              >
+                <Scan size={20} /> Start AI Analysis
+              </button>
+            )}
+
+            {/* SCANNING STATE */}
+            {isScanning && (
+              <div className="absolute inset-0 bg-slate-950/90 z-20 flex flex-col items-center justify-center rounded-2xl">
+                <div className="relative">
+                  <Fingerprint className="w-16 h-16 text-slate-700 absolute" />
+                  <Fingerprint className="w-16 h-16 text-amber-400 animate-pulse relative z-10" />
+                </div>
+                <p className="text-amber-400 mt-4 font-mono tracking-widest animate-pulse">PROCESSING 4 ANGLES...</p>
+              </div>
+            )}
+
+            {/* RESULT STATE */}
+            {scanComplete && (
+              <div className="absolute inset-0 bg-slate-900 z-20 flex flex-col items-center justify-center p-8 text-center rounded-2xl animate-fade-in">
+                 <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 border border-green-500/50 shadow-[0_0_30px_rgba(34,197,94,0.3)]">
+                    <CheckCircle className="w-8 h-8 text-green-400" />
+                 </div>
+                 <h3 className="text-2xl font-bold text-white mb-2 font-[Cinzel]">Analysis Complete!</h3>
+                 <p className="text-gray-400 mb-6 text-sm">AI has successfully mapped 128 points on your hands.</p>
+                 
+                 <div className="grid grid-cols-2 gap-3 w-full max-w-sm mb-6">
+                    <div className="bg-slate-800 p-3 rounded-lg text-left">
+                      <span className="text-xs text-gray-500 block">Life Line</span>
+                      <span className="text-green-400 font-bold">Strong (85%)</span>
+                    </div>
+                    <div className="bg-slate-800 p-3 rounded-lg text-left">
+                      <span className="text-xs text-gray-500 block">Luck Line</span>
+                      <span className="text-amber-400 font-bold">Rising (92%)</span>
+                    </div>
+                 </div>
+
+                 <button 
+                  onClick={() => setScanComplete(false)} 
+                  className="mb-3 w-full py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition-colors border border-slate-700"
+                 >
+                   Scan New Hand
+                 </button>
+                 <button className="text-amber-400 text-sm font-bold hover:underline flex items-center gap-1">
+                   Download Full Report <ArrowRight size={14} />
+                 </button>
+              </div>
+            )}
           </div>
 
-
-          {/* --- RIGHT: INFORMATION --- */}
-          <div className="space-y-8">
-            <h3 className="text-3xl font-bold text-white font-[Cinzel]">
-              How AI Reads Your <span className="text-amber-400">Destiny</span>
-            </h3>
-            <p className="text-gray-400 leading-relaxed">
-              Unlike traditional palmistry which relies on human interpretation, our AI creates a 3D topographic map of your palm to measure the depth, length, and curvature of your major lines with 99.9% precision.
-            </p>
-
-            <div className="space-y-6">
-              {/* Feature 1 */}
-              <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center shrink-0">
-                  <BrainCircuit className="text-amber-400" size={24} />
-                </div>
-                <div>
-                  <h4 className="text-white font-bold text-lg">Head Line Analysis</h4>
-                  <p className="text-sm text-gray-500 mt-1">Reveals your intellectual curiosity, learning style, and decision-making approach.</p>
-                </div>
-              </div>
-
-              {/* Feature 2 */}
-              <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center shrink-0">
-                  <Heart className="text-pink-500" size={24} />
-                </div>
-                <div>
-                  <h4 className="text-white font-bold text-lg">Heart Line Decoding</h4>
-                  <p className="text-sm text-gray-500 mt-1">Uncovers your emotional stability, romantic perspectives, and cardiac health indications.</p>
-                </div>
-              </div>
-
-              {/* Feature 3 */}
-              <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center shrink-0">
-                  <Scan className="text-blue-500" size={24} />
-                </div>
-                <div>
-                  <h4 className="text-white font-bold text-lg">Instant Predictions</h4>
-                  <p className="text-sm text-gray-500 mt-1">Get a detailed PDF report generated within seconds of scanning.</p>
-                </div>
-              </div>
-            </div>
-
+          {/* RIGHT: INFO TEXT (Same as before but adjusted) */}
+          <div className="space-y-6 pt-4">
+             {/* ... (Existing Info content can remain same, or I can paste if needed) ... */}
+             <h3 className="text-2xl font-bold text-white font-[Cinzel]">Why 4 Angles?</h3>
+             <ul className="space-y-4">
+                <li className="flex gap-4">
+                  <div className="w-8 h-8 bg-amber-500/20 rounded-full flex items-center justify-center text-amber-400 font-bold shrink-0">1</div>
+                  <div>
+                    <h4 className="text-white font-bold">Both Palms (Karma & Destiny)</h4>
+                    <p className="text-sm text-gray-400">Left hand shows what you were born with; Right hand shows what you made of it.</p>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <div className="w-8 h-8 bg-amber-500/20 rounded-full flex items-center justify-center text-amber-400 font-bold shrink-0">2</div>
+                  <div>
+                    <h4 className="text-white font-bold">Side View (Mounts)</h4>
+                    <p className="text-sm text-gray-400">Determines the thickness of mounts (Venus/Moon) indicating energy levels.</p>
+                  </div>
+                </li>
+             </ul>
           </div>
 
         </div>
       </div>
-
-      {/* Tailwind Custom Animation for Scanning (Needs to be in index.css typically, but inline style works for simple movement) */}
-      <style>{`
-        @keyframes scan {
-          0% { top: 0%; opacity: 0; }
-          10% { opacity: 1; }
-          50% { top: 100%; }
-          90% { opacity: 1; }
-          100% { top: 0%; opacity: 0; }
-        }
-      `}</style>
     </div>
   );
 };

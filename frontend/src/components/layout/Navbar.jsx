@@ -85,7 +85,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/palmistry" className={`${baseStyle} ${isActive('/palmistry') ? activeStyle : inactiveStyle}`}>
-                AI Palmistry
+                Palmistry
               </Link>
             </li>
             <li>
