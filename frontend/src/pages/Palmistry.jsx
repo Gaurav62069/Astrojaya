@@ -76,7 +76,7 @@ const Palmistry = () => {
   );
 
   return (
-    <div className="min-h-screen bg-slate-950 pt-24 pb-12 px-4">
+    <div className="min-h-screen pt-24 pb-12 px-4">
       <div className="max-w-6xl mx-auto">
         
         {/* HERO HEADER */}

@@ -4,7 +4,7 @@ import { Sparkles, Facebook, Twitter, Instagram, Mail, Phone, MapPin, ArrowRight
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-900 border-t border-slate-800 text-gray-300">
+    <footer className="bg-transparent border-t border-slate-800 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -80,7 +80,7 @@ const Footer = () => {
       </div>
 
       {/* Copyright Bar */}
-      <div className="bg-slate-950 py-6 border-t border-slate-800">
+      <div className="bg-slate-800/50 py-6 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
           <p>© 2024 AstroJaya. All rights reserved.</p>
           <div className="flex space-x-6">

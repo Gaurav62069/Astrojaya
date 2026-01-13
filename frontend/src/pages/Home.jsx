@@ -22,7 +22,7 @@ const Home = () => {
       icon: ScrollText,
       title: "Kundli Generation",
       description: "Get your detailed Janam Kundli with planetary positions and dosha analysis instantly.",
-      link: "/services"
+      link: "/kundli"
     },
     {
       icon: Hand,
@@ -57,7 +57,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen ">
       
       {/* 1. Hero Slider Section */}
       <HomeSlider />

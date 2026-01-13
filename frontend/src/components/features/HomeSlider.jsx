@@ -19,7 +19,7 @@ const slides = [
     subtitle: "Vedic Astrology & Modern AI combined to guide your path.",
     btnText: "Get Free Horoscope",
     link: "/horoscope",
-    isAd: false
+    isAd: true
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const slides = [
     subtitle: "Scan your hand from 4 angles and reveal hidden secrets.",
     btnText: "Try AI Scan Now",
     link: "/palmistry",
-    isAd: false
+    isAd: true
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ const slides = [
     subtitle: "Find the perfect match with detailed Guna Milan & analysis.",
     btnText: "Check Compatibility",
     link: "/services",
-    isAd: false
+    isAd: true
   },
   {
     id: 5,
@@ -76,7 +76,7 @@ const HomeSlider = () => {
   }, [index]);
 
   return (
-    <div className="relative w-full h-[600px] md:h-[700px] bg-black">
+    <div className="relative w-full h-[600px] md:h-[700px] bg-transparent">
       <Swiper
         modules={[Autoplay, EffectFade, Navigation, Pagination]}
         effect={'fade'}
@@ -90,7 +90,7 @@ const HomeSlider = () => {
         className="w-full h-full"
       >
         {slides.map((slide) => (
-          <SwiperSlide key={slide.id} className="relative w-full h-full bg-black">
+          <SwiperSlide key={slide.id} className="relative w-full h-full bg-transparent">
             {/* Background Image */}
             <img 
               src={slide.image} 

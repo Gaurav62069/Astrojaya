@@ -43,7 +43,7 @@ const Horoscope = () => {
   const currentData = viewType === 'daily' ? prediction.daily : prediction.weekly;
 
   return (
-    <div className="min-h-screen bg-slate-950 pt-24 pb-12 px-4">
+    <div className="min-h-screen pt-24 pb-12 px-4">
       <div className="max-w-7xl mx-auto">
 
         {/* --- HEADER --- */}
@@ -73,7 +73,7 @@ const Horoscope = () => {
         </div>
 
         {/* --- SIGN SELECTOR (Scrollable) --- */}
-        <div className="flex overflow-x-auto pb-6 gap-4 md:justify-center mb-10 scrollbar-hide">
+        <div className="flex overflow-x-auto p-5 gap-5 sm:justify-left mb-10 scrollbar-hide bg-white/5 backdrop-blur-md rounded-2xl">
           {signs.map((sign) => (
             <button
               key={sign.name}
@@ -81,7 +81,7 @@ const Horoscope = () => {
               className={`flex flex-col items-center min-w-[90px] p-4 rounded-xl border transition-all duration-300 ${
                 activeSign === sign.name
                   ? "bg-amber-500 border-amber-500 text-slate-900 scale-110 shadow-[0_0_20px_rgba(251,191,36,0.4)]"
-                  : "bg-slate-900 border-slate-800 text-gray-400 hover:border-amber-500/50 hover:text-white"
+                  : "bg-slate-900/50 border-slate-700 text-gray-400 hover:border-amber-500/50 hover:text-white transition-all duration-300 hover:-translate-y-1 shadow-lg"
               }`}
             >
               <span className="text-3xl mb-2">{sign.icon}</span>
@@ -95,7 +95,7 @@ const Horoscope = () => {
           
           {/* LEFT: Main Prediction Card */}
           <div className="lg:col-span-2 space-y-8">
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 relative overflow-hidden transition-all duration-500">
+            <div className=" rounded-2xl p-8 relative overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/50 hover:shadow-[0_0_30px_rgba(251,191,36,0.15)]">
               
               <div className="flex items-center justify-between mb-6">
                 <div>
@@ -140,16 +140,16 @@ const Horoscope = () => {
 
           {/* RIGHT: Stats (Visible only in Daily for now, or adaptable) */}
           <div className="space-y-6">
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <div className=" rounded-2xl p-6 border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/50 hover:shadow-[0_0_30px_rgba(251,191,36,0.15)]">
                 <h3 className="text-white font-bold mb-6 font-[Cinzel] flex items-center gap-2">
                     <Sparkles className="text-amber-400" size={20} /> Lucky Stats
                 </h3>
                 <div className="space-y-4">
-                    <div className="flex items-center justify-between p-3 bg-slate-950 rounded-lg border border-slate-800">
+                    <div className="flex items-center justify-between p-3 rounded-lg border border-slate-800 bg-slate-950/50">
                         <span className="text-gray-400">Lucky Number</span>
                         <span className="font-bold text-white text-lg">7</span>
                     </div>
-                    <div className="flex items-center justify-between p-3 bg-slate-950 rounded-lg border border-slate-800">
+                    <div className="flex items-center justify-between p-3 bg-slate-950/50 rounded-lg border border-slate-800">
                         <span className="text-gray-400">Lucky Color</span>
                         <span className="font-bold text-white">Red</span>
                     </div>

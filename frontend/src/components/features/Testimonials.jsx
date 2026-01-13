@@ -30,7 +30,7 @@ const reviews = [
 
 const Testimonials = () => {
   return (
-    <section className="py-20 px-4 bg-slate-900 relative overflow-hidden">
+    <section className="py-20 px-4  relative overflow-hidden">
       
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>

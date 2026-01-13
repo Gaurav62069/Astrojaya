@@ -12,9 +12,20 @@
 
 /* Global Styles */
 body {
-  background-color: var(--color-astro-dark);
+  margin: 0;
+  padding: 0;
   color: white;
   font-family: var(--font-body);
+
+  /* --- NEW BACKGROUND SETTINGS (Palm Image) --- */
+  background-image: url('/bg-palm.jpg'); /* Public folder se image */
+  background-attachment: fixed;          /* Parallax effect ke liye */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;                /* Screen cover kare */
+  
+  /* Agar image load na ho to ye color dikhega */
+  background-color: var(--color-astro-dark); 
 }
 
 /* Custom Scrollbar */

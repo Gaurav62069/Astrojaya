@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Send, Clock, Sparkles } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-slate-950 pt-24 pb-12 px-4">
+    <div className="min-h-screen pt-24 pb-12 px-4">
       <div className="max-w-6xl mx-auto">
         
         {/* --- HEADER --- */}
@@ -21,7 +21,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           
           {/* --- LEFT: CONTACT FORM --- */}
-          <div className="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl">
+          <div className=" p-8 rounded-2xl shadow-xl bg-slate-850/50 backdrop-blur-md border border-white/10 shadow-2xl">
             <h3 className="text-2xl font-bold text-white mb-6 font-[Cinzel] flex items-center gap-2">
               Send a Message <Send size={20} className="text-amber-400" />
             </h3>
@@ -30,22 +30,22 @@ const Contact = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm text-gray-400">First Name</label>
-                  <input type="text" className="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:border-amber-500 focus:outline-none transition-colors" placeholder="Arjun" />
+                  <input type="text" className="w-full bg-slate-800/50 border border-slate-700 rounded-lg p-3 text-white focus:border-amber-500 focus:outline-none transition-colors" placeholder="Arjun" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm text-gray-400">Last Name</label>
-                  <input type="text" className="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:border-amber-500 focus:outline-none transition-colors" placeholder="Kapoor" />
+                  <input type="text" className="w-full bg-slate-800/50 border border-slate-700 rounded-lg p-3 text-white focus:border-amber-500 focus:outline-none transition-colors" placeholder="Kapoor" />
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm text-gray-400">Email Address</label>
-                <input type="email" className="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:border-amber-500 focus:outline-none transition-colors" placeholder="arjun@example.com" />
+                <input type="email" className="w-full bg-slate-800/50 border border-slate-700 rounded-lg p-3 text-white focus:border-amber-500 focus:outline-none transition-colors" placeholder="arjun@example.com" />
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm text-gray-400">Subject</label>
-                <select className="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:border-amber-500 focus:outline-none transition-colors">
+                <select className="w-full bg-slate-800/50 border border-slate-700 rounded-lg p-3 text-white focus:border-amber-500 focus:outline-none transition-colors">
                   <option>General Inquiry</option>
                   <option>Kundli Problem</option>
                   <option>Payment Issue</option>
@@ -55,7 +55,7 @@ const Contact = () => {
 
               <div className="space-y-2">
                 <label className="text-sm text-gray-400">Message</label>
-                <textarea rows="4" className="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-white focus:border-amber-500 focus:outline-none transition-colors" placeholder="How can we help you today?"></textarea>
+                <textarea rows="4" className="w-full bg-slate-800/50 border border-slate-700 rounded-lg p-3 text-white focus:border-amber-500 focus:outline-none transition-colors" placeholder="How can we help you today?"></textarea>
               </div>
 
               <button className="w-full bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-4 rounded-lg transition-all shadow-[0_0_15px_rgba(251,191,36,0.4)] flex justify-center items-center gap-2">
@@ -69,7 +69,7 @@ const Contact = () => {
             
             {/* Info Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-slate-900 p-6 rounded-xl border border-slate-800 hover:border-amber-500/50 transition-colors group">
+              <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors group">
                 <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-slate-900 transition-colors">
                   <Phone className="text-amber-400 group-hover:text-slate-900" />
                 </div>
@@ -78,7 +78,7 @@ const Contact = () => {
                 <p className="text-gray-500 text-xs mt-1">Mon-Fri 9am to 6pm</p>
               </div>
 
-              <div className="bg-slate-900 p-6 rounded-xl border border-slate-800 hover:border-amber-500/50 transition-colors group">
+              <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors group">
                 <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-slate-900 transition-colors">
                   <Mail className="text-amber-400 group-hover:text-slate-900" />
                 </div>
@@ -87,7 +87,7 @@ const Contact = () => {
                 <p className="text-gray-500 text-xs mt-1">Online 24/7</p>
               </div>
 
-              <div className="bg-slate-900 p-6 rounded-xl border border-slate-800 hover:border-amber-500/50 transition-colors group">
+              <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors group">
                 <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-slate-900 transition-colors">
                   <MapPin className="text-amber-400 group-hover:text-slate-900" />
                 </div>
@@ -96,7 +96,7 @@ const Contact = () => {
                 <p className="text-gray-500 text-xs mt-1">Maharashtra, India</p>
               </div>
 
-              <div className="bg-slate-900 p-6 rounded-xl border border-slate-800 hover:border-amber-500/50 transition-colors group">
+              <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors group">
                 <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-slate-900 transition-colors">
                   <Clock className="text-amber-400 group-hover:text-slate-900" />
                 </div>

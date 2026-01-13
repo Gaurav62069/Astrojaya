@@ -18,7 +18,7 @@ const zodiacSigns = [
 
 const ZodiacSection = () => {
   return (
-    <section className="py-20 px-4 bg-slate-900 border-t border-slate-800">
+    <section className="py-20 px-4  border-t border-slate-800">
       <div className="max-w-7xl mx-auto text-center">
         
         {/* Header */}
@@ -33,7 +33,7 @@ const ZodiacSection = () => {
             <Link 
               key={sign.name} 
               to={`/horoscope/${sign.name.toLowerCase()}`}
-              className="group relative bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-amber-500 hover:bg-slate-700/50 transition-all duration-300 hover:-translate-y-1 flex flex-col items-center"
+              className="group relative  p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/50 hover:shadow-[0_0_30px_rgba(251,191,36,0.15)] flex flex-col items-center"
             >
               {/* Symbol */}
               <div className="text-5xl mb-3 text-gray-500 group-hover:text-amber-400 group-hover:scale-110 transition-all duration-300">

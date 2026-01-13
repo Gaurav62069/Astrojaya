@@ -11,8 +11,9 @@ import Horoscope from './pages/Horoscope';
 import Palmistry from './pages/Palmistry';
 import Contact from './pages/Contact';
 import Booking from './pages/Booking';
-import About from './pages/About';     // यह नया पेज है जो अभी बनाया
-import Services from './pages/Services'; // यह भी नया पेज है
+import About from './pages/About';
+import Services from './pages/Services';
+import Kundli from './pages/Kundli'; // <--- 1. Kundli Page Import kiya
 
 // Layout Component: यह Navbar और Footer को कंडीशनली रेंडर करता है
 const Layout = ({ children }) => {
@@ -36,7 +37,10 @@ const Layout = ({ children }) => {
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-slate-950 text-white font-[Inter]">
+      {/* CHANGE 2: Background Opacity 
+         'bg-slate-950/85' kar diya taki background image (Palm) dikhai de.
+      */}
+      <div className="min-h-screen bg-slate-950/85 text-white font-[Inter]">
         
         <Layout>
           <Routes>
@@ -50,6 +54,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/horoscope" element={<Horoscope />} />
             <Route path="/palmistry" element={<Palmistry />} />
+            <Route path="/kundli" element={<Kundli />} /> {/* <--- Kundli Route Added */}
             <Route path="/contact" element={<Contact />} />
             <Route path="/book" element={<Booking />} />
           </Routes>

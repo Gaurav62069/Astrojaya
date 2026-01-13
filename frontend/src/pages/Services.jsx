@@ -59,7 +59,7 @@ const servicesList = [
 
 const Services = () => {
   return (
-    <div className="min-h-screen bg-slate-950 pt-24 pb-12 px-4">
+    <div className="min-h-screen  pt-24 pb-12 px-4">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
@@ -76,7 +76,7 @@ const Services = () => {
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {servicesList.map((service, index) => (
-            <div key={index} className="group bg-slate-900 border border-slate-800 p-8 rounded-2xl hover:border-amber-500/50 hover:-translate-y-2 transition-all duration-300">
+            <div key={index} className="group border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/50 hover:shadow-[0_0_30px_rgba(251,191,36,0.15)] p-8 rounded-2xl">
               <div className={`w-14 h-14 ${service.bg} ${service.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                 <service.icon size={28} />
               </div>
@@ -92,7 +92,7 @@ const Services = () => {
         </div>
 
         {/* CTA */}
-        <div className="mt-20 p-8 md:p-12 bg-gradient-to-r from-amber-600 to-amber-500 rounded-3xl text-center shadow-2xl relative overflow-hidden">
+        <div className="mt-20 p-8 md:p-12 bg-gradient-to-r from-amber-600/50 to-amber-500/50 rounded-3xl text-center shadow-2xl relative overflow-hidden">
             <div className="relative z-10">
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-[Cinzel] mb-4">Not sure what you need?</h2>
                 <p className="text-slate-900/80 mb-8 text-lg font-medium">Talk to our experts and get a personalized recommendation.</p>
