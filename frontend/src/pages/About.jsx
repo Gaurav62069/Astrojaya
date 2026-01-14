@@ -9,7 +9,7 @@ const About = () => {
       <div className="max-w-7xl mx-auto mb-24">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold text-white font-[Cinzel] mb-4">
-            About <span className="text-amber-400">AstroJaya</span>
+            About <span className="text-amber-400">AstroApna</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-3xl mx-auto">
             Your trusted companion in decoding the language of the stars. We combine the 
@@ -34,7 +34,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* --- SECTION 2: ABOUT JAYA (THE PERSON) --- */}
+      {/* --- SECTION 2: ABOUT Apna (THE PERSON) --- */}
       <div className="max-w-7xl mx-auto bg-slate-850/50 rounded-3xl overflow-hidden border border-slate-800 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/50 hover:shadow-[0_0_30px_rgba(251,191,36,0.15)]">
         <div className="grid grid-cols-1 lg:grid-cols-2 ">
           
@@ -42,7 +42,7 @@ const About = () => {
           <div className="relative h-96 lg:h-auto">
             <img 
               src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop" 
-              alt="Acharya Jaya" 
+              alt="Acharya Apna" 
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent lg:bg-gradient-to-r"></div>
@@ -56,17 +56,17 @@ const About = () => {
             </div>
             
             <h2 className="text-3xl md:text-5xl font-bold text-white font-[Cinzel] mb-6">
-              Acharya <span className="text-amber-400">Jaya</span>
+              Acharya <span className="text-amber-400">Apna</span>
             </h2>
             
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                With over 15 years of devoted practice in Vedic Astrology, Acharya Jaya has helped 
+                With over 15 years of devoted practice in Vedic Astrology, Acharya Apna has helped 
                 thousands of individuals find clarity and purpose. Her journey began in Varanasi, 
                 where she studied ancient scriptures under renowned Gurus.
               </p>
               <p>
-                Jaya specializes in <strong>Nadi Astrology, Gemology, and Vastu Shastra</strong>. 
+                Apna specializes in <strong>Nadi Astrology, Gemology, and Vastu Shastra</strong>. 
                 She believes that astrology is not just about predicting the future, but about 
                 empowering you to create it.
               </p>

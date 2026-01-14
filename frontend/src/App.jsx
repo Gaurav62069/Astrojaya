@@ -40,7 +40,7 @@ function App() {
       {/* CHANGE 2: Background Opacity 
          'bg-slate-950/85' kar diya taki background image (Palm) dikhai de.
       */}
-      <div className="min-h-screen bg-slate-950/85 text-white font-[Inter]">
+      <div className="min-h-screen bg-black/80 text-white font-[Inter]">
         
         <Layout>
           <Routes>

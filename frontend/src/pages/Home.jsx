@@ -62,7 +62,7 @@ const Home = () => {
       {/* 1. Hero Slider Section */}
       <HomeSlider />
 
-      {/* --- NEW SECTION: ASTROJAYA INTRO --- */}
+      {/* --- NEW SECTION: ASTROApna INTRO --- */}
       <section className="relative py-20 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
         {/* Decorative Background Elements */}
         <div className="absolute top-0 left-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -72,13 +72,13 @@ const Home = () => {
           {/* Text Content */}
           <div className="space-y-6">
             <span className="text-amber-400 font-medium tracking-widest uppercase text-sm flex items-center gap-2">
-              <Star size={16} fill="currentColor" /> Welcome to AstroJaya
+              <Star size={16} fill="currentColor" /> Welcome to AstroApna
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-white font-[Cinzel] leading-tight">
               Unlock the Wisdom of the <span className="text-amber-400">Cosmos</span>
             </h2>
             <p className="text-gray-300 text-lg leading-relaxed">
-              At AstroJaya, we bridge the gap between ancient Vedic science and modern technology. 
+              At AstroApna, we bridge the gap between ancient Vedic science and modern technology. 
               Our mission is to provide you with accurate, personalized guidance to navigate life's 
               challenges with confidence.
             </p>

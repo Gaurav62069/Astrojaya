@@ -16,7 +16,7 @@ const Footer = () => {
                 <Sparkles className="w-5 h-5 text-slate-900 fill-slate-900" />
               </div>
               <span className="text-2xl font-bold text-white font-[Cinzel]">
-                Astro<span className="text-amber-400">Jaya</span>
+                Astro<span className="text-amber-400">Apna</span>
               </span>
             </Link>
             <p className="text-sm leading-relaxed text-gray-400">
@@ -29,7 +29,7 @@ const Footer = () => {
               <a href="#" className="p-2 bg-slate-800 rounded-full hover:bg-amber-500 hover:text-slate-900 transition-all">
                 <Twitter size={18} />
               </a>
-              <a href="#" className="p-2 bg-slate-800 rounded-full hover:bg-amber-500 hover:text-slate-900 transition-all">
+              <a href="https://www.instagram.com/astroapna_?igsh=MWpiN2FzN255MW5uag==" className="p-2 bg-slate-800 rounded-full hover:bg-amber-500 hover:text-slate-900 transition-all">
                 <Instagram size={18} />
               </a>
             </div>
@@ -67,11 +67,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-amber-400 shrink-0" />
-                <span>+91 98765 43210</span>
+                <span>+91 95413 71359</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-amber-400 shrink-0" />
-                <span>support@astrojaya.com</span>
+                <span>astrojaya@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -82,7 +82,7 @@ const Footer = () => {
       {/* Copyright Bar */}
       <div className="bg-slate-800/50 py-6 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-          <p>© 2024 AstroJaya. All rights reserved.</p>
+          <p>© 2024 AstroApna. All rights reserved.</p>
           <div className="flex space-x-6">
             <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-white">Terms of Service</Link>

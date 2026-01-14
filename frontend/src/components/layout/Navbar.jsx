@@ -50,7 +50,7 @@ const Navbar = () => {
              <Sparkles className="w-5 h-5 text-black fill-black" />
           </div>
           <span className="self-center text-2xl font-bold whitespace-nowrap text-white font-[Cinzel] tracking-wide">
-            Astro<span className="text-amber-400">Jaya</span>
+            Astro<span className="text-amber-400">Apna</span>
           </span>
         </Link>
 

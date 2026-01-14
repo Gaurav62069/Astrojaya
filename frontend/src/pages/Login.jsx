@@ -52,7 +52,7 @@ const Login = () => {
         <div className="hidden md:flex w-1/2 relative flex-col justify-between p-12 text-white bg-black">
           <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2094&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover opacity-60" alt="bg" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50"></div>
-          <div className="relative z-10"><Link to="/" className="flex items-center space-x-2 w-fit"><Sparkles className="text-amber-500" /> <span className="text-2xl font-bold font-[Cinzel]">Astro<span className="text-amber-400">Jaya</span></span></Link></div>
+          <div className="relative z-10"><Link to="/" className="flex items-center space-x-2 w-fit"><Sparkles className="text-amber-500" /> <span className="text-2xl font-bold font-[Cinzel]">Astro<span className="text-amber-400">Apna</span></span></Link></div>
           <div className="relative z-10"><h2 className="text-4xl font-bold mb-4 font-[Cinzel]">Unlock Your Cosmic Destiny</h2><p className="text-gray-300">Sign in to access personalized daily horoscopes.</p></div>
         </div>
 

@@ -3,7 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, MessageCircle, Phone } from 'lucide-react';
-
+import pujaService from '/puja.jpg'
+import gemstone from '/gemstone.jpg'
+import kundali from '/kundlimilan.jpg'
+import palm from '/palm.jpg'
 // Swiper ke styles import karna zaruri hai
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -23,8 +26,8 @@ const slides = [
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1507915133614-5c9c37574343?q=80&w=2069&auto=format&fit=crop", 
-    title: "AI Palm Reading",
+    image: palm, 
+    title: "Palm Reading",
     subtitle: "Scan your hand from 4 angles and reveal hidden secrets.",
     btnText: "Try AI Scan Now",
     link: "/palmistry",
@@ -32,7 +35,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1606293926075-69a00febf280?q=80&w=2070", 
+    image: pujaService, 
     title: "Premium Pooja Services",
     subtitle: "Expert Pandits for Graha Shanti & Dosha Nivaran.",
     btnText: "Book Now",
@@ -41,7 +44,7 @@ const slides = [
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1515942400420-2b98fed1f515?q=80&w=1974&auto=format&fit=crop", 
+    image: kundali, 
     title: "Kundli Milan",
     subtitle: "Find the perfect match with detailed Guna Milan & analysis.",
     btnText: "Check Compatibility",
@@ -50,7 +53,7 @@ const slides = [
   },
   {
     id: 5,
-    image: "https://images.unsplash.com/photo-1615526879891-9e85559d2979?q=80&w=2070",
+    image: gemstone,
     title: "Certified Gemstones",
     subtitle: "Wear your lucky stone for success & prosperity.",
     btnText: "Visit Shop",
@@ -142,7 +145,7 @@ const HomeSlider = () => {
 
                 {/* Pulse Call/WhatsApp Button */}
                 <button 
-                  onClick={() => window.open('https://wa.me/919876543210', '_blank')}
+                  onClick={() => window.open('https://wa.me/919541371359', '_blank')}
                   className="px-8 py-4 bg-slate-900/50 backdrop-blur-md border border-amber-500 text-amber-400 font-bold rounded-full text-lg hover:bg-amber-500 hover:text-black transition-all duration-300 animate-pulse flex items-center gap-2"
                 >
                   <MessageCircle size={20} /> Chat Now

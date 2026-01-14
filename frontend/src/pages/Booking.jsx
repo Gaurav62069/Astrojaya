@@ -23,8 +23,8 @@ const Booking = () => {
     return;
   }
     // 1. WhatsApp Message Format Karna
-    const phoneNumber = "919876543210"; // Apna WhatsApp Number yahan daal
-    const message = `Namaste AstroJaya! %0A%0AMy Name: ${formData.name}%0ADOB: ${formData.dob}%0ATime: ${formData.time}%0APlace: ${formData.place}%0AProblem: ${formData.problem}%0A%0AI want to book a consultation.`;
+    const phoneNumber = "919541371359"; // Apna WhatsApp Number yahan daal
+    const message = `Namaste AstroApna! %0A%0AMy Name: ${formData.name}%0ADOB: ${formData.dob}%0ATime: ${formData.time}%0APlace: ${formData.place}%0AProblem: ${formData.problem}%0A%0AI want to book a consultation.`;
     
     // 2. WhatsApp Open Karna
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');

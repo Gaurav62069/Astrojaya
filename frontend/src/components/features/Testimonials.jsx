@@ -7,7 +7,7 @@ const reviews = [
     name: "Aditi Sharma",
     role: "Business Owner",
     image: "https://randomuser.me/api/portraits/women/44.jpg",
-    content: "AstroJaya ki Kundli reading ekdum accurate thi! Meri business problem ka jo solution mila, usne meri life change kar di. Highly recommended!",
+    content: "AstroApna ki Kundli reading ekdum accurate thi! Meri business problem ka jo solution mila, usne meri life change kar di. Highly recommended!",
     rating: 5
   },
   {
