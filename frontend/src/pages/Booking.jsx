@@ -18,7 +18,12 @@ const Booking = () => {
     e.preventDefault();
     const user = localStorage.getItem("user");
   if (!user) {
-    alert("Please login to book a consultation! 📅");
+    showAlert(
+        "Login Required 🔒",                     // Title
+        "To chat with our premium Astrologers, you need to login first.", // Message
+        "warning",                               // Type (warning/error/success)
+        () => navigate("/login")                 // Action after clicking OK
+      );
     navigate("/login");
     return;
   }

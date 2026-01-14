@@ -1,182 +1,210 @@
 import React, { useState } from 'react';
-import { UploadCloud, Scan, CheckCircle, Fingerprint, Loader2, ArrowRight } from 'lucide-react';
+import { Upload, Hand, Sparkles, Scan, Loader2, Info, CheckCircle, Camera, X } from 'lucide-react';
 
 const Palmistry = () => {
+  // 4 Angles State
   const [images, setImages] = useState({
-    leftPalm: null,
-    rightPalm: null,
-    sideView: null,
-    backHand: null
+    angle1: null,
+    angle2: null,
+    angle3: null,
+    angle4: null
   });
-  const [isScanning, setIsScanning] = useState(false);
-  const [scanComplete, setScanComplete] = useState(false);
 
-  const handleImageUpload = (e, type) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImages(prev => ({ ...prev, [type]: reader.result }));
-      };
-      reader.readAsDataURL(file);
+  const [analyzing, setAnalyzing] = useState(false);
+  const [showResult, setShowResult] = useState(false);
+
+  // Handle Image Upload for specific angle
+  const handleImageChange = (e, angle) => {
+    if (e.target.files && e.target.files[0]) {
+      setImages({
+        ...images,
+        [angle]: URL.createObjectURL(e.target.files[0])
+      });
+      setShowResult(false); // Reset result on new upload
     }
   };
 
-  const handleScan = () => {
-    // Check if all images are uploaded
-    const uploadedCount = Object.values(images).filter(Boolean).length;
-    if (uploadedCount < 4) {
-      alert("Please upload all 4 angles for accurate reading!");
+  // Clear specific image
+  const removeImage = (angle) => {
+    setImages({ ...images, [angle]: null });
+  };
+
+  const startAnalysis = () => {
+    // Check if at least one image is uploaded
+    const isAnyImageUploaded = Object.values(images).some(img => img !== null);
+    
+    if (!isAnyImageUploaded) {
+     
+      showAlert(
+        "Required image",                     // Title
+        "Please upload at least one photo of your palm! ✋", // Message
+        "error",                               // Type (warning/error/success)
+        () => navigate("/login")                 // Action after clicking OK
+      );
       return;
     }
-
-    setIsScanning(true);
-    setScanComplete(false);
     
-    // Fake Scan Logic (3 Seconds)
+    setAnalyzing(true);
+    setShowResult(false);
+
+    // 2.5 Seconds Fake Scanning Animation
     setTimeout(() => {
-      setIsScanning(false);
-      setScanComplete(true);
-    }, 3000);
+      setAnalyzing(false);
+      setShowResult(true);
+    }, 2500);
   };
 
-  const UploadBox = ({ label, type, currentImage }) => (
-    <div className="relative group">
-      <input 
-        type="file" 
-        accept="image/*" 
-        onChange={(e) => handleImageUpload(e, type)}
-        className="hidden" 
-        id={`upload-${type}`}
-        disabled={isScanning || scanComplete}
-      />
-      <label 
-        htmlFor={`upload-${type}`}
-        className={`w-full h-48 rounded-xl border-2 border-dashed flex flex-col items-center justify-center cursor-pointer transition-all overflow-hidden
-          ${currentImage 
-            ? 'border-green-500/50 bg-slate-900' 
-            : 'border-slate-700 bg-slate-900/50 hover:border-amber-500/50 hover:bg-slate-800'
-          }`}
-      >
-        {currentImage ? (
-          <div className="relative w-full h-full">
-            <img src={currentImage} alt={label} className="w-full h-full object-cover opacity-80" />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-              <CheckCircle className="text-green-400 w-8 h-8" />
-            </div>
-          </div>
-        ) : (
-          <>
-            <UploadCloud className="w-8 h-8 text-slate-500 mb-2 group-hover:text-amber-400 transition-colors" />
-            <span className="text-gray-400 text-sm font-medium">{label}</span>
-          </>
-        )}
-      </label>
-    </div>
-  );
+  const uploadSlots = [
+    { id: 'angle1', label: 'Left Palm (Full)', icon: Hand },
+    { id: 'angle2', label: 'Right Palm (Full)', icon: Hand },
+    { id: 'angle3', label: 'Side View (Mounts)', icon: Camera },
+    { id: 'angle4', label: 'Close Up (Lines)', icon: Scan },
+  ];
 
   return (
     <div className="min-h-screen pt-24 pb-12 px-4">
       <div className="max-w-6xl mx-auto">
         
-        {/* HERO HEADER */}
+        {/* --- HEADER --- */}
         <div className="text-center mb-12">
-          <span className="text-amber-400 font-medium tracking-widest uppercase text-sm">AI Hand Analysis</span>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mt-2 font-[Cinzel]">
-            4-Angle <span className="text-amber-400">Palm Reading</span>
+          <div className="inline-flex items-center justify-center p-3 bg-amber-500/10 rounded-2xl mb-4 backdrop-blur-sm border border-amber-500/20 shadow-[0_0_15px_rgba(251,191,36,0.3)]">
+            <Hand className="w-8 h-8 text-amber-400" />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold font-[Cinzel] mb-4 text-white">
+            AI <span className="text-amber-400">Palmistry</span>
           </h1>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-            Upload photos from 4 different angles. Our AI constructs a 3D model of your hand for 99% accuracy.
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            Upload palm photos from different angles for a precise AI reading.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-8 items-start">
           
-          {/* LEFT: UPLOAD GRID */}
-          <div className="relative bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
-            
-            {/* Grid for 4 Images */}
+          {/* --- UPLOAD SECTION (4 ANGLES RESTORED) --- */}
+          <div className="relative bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
+            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-32 h-32 rounded-full bg-amber-500/10 blur-2xl"></div>
+
+            <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2 font-[Cinzel]">
+              <Scan className="text-amber-400" size={24} />
+              Upload 4 Angles
+            </h2>
+
+            {/* 4 GRID LAYOUT */}
             <div className="grid grid-cols-2 gap-4 mb-6">
-              <UploadBox label="Left Palm (Main)" type="leftPalm" currentImage={images.leftPalm} />
-              <UploadBox label="Right Palm" type="rightPalm" currentImage={images.rightPalm} />
-              <UploadBox label="Side View (Thickness)" type="sideView" currentImage={images.sideView} />
-              <UploadBox label="Back of Hand" type="backHand" currentImage={images.backHand} />
+              {uploadSlots.map((slot) => (
+                <div key={slot.id} className="relative group">
+                  <div className="aspect-square bg-slate-950/30 border-2 border-dashed border-slate-700 rounded-xl flex flex-col items-center justify-center relative overflow-hidden hover:border-amber-500/50 transition-colors">
+                    
+                    {images[slot.id] ? (
+                      <>
+                        <img src={images[slot.id]} alt={slot.label} className="w-full h-full object-cover" />
+                        {/* Remove Button */}
+                        {!analyzing && (
+                          <button 
+                            onClick={() => removeImage(slot.id)}
+                            className="absolute top-2 right-2 p-1 bg-red-500/80 text-white rounded-full hover:bg-red-600 transition-colors"
+                          >
+                            <X size={14} />
+                          </button>
+                        )}
+                        {/* Scanning Effect Overlay */}
+                        {analyzing && (
+                          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-500/20 to-transparent w-full h-full animate-scan z-10"></div>
+                        )}
+                      </>
+                    ) : (
+                      <label htmlFor={`upload-${slot.id}`} className="cursor-pointer flex flex-col items-center gap-2 p-2 w-full h-full justify-center hover:bg-white/5 transition-all">
+                        <slot.icon className="w-6 h-6 text-gray-500 group-hover:text-amber-400 transition-colors" />
+                        <span className="text-xs font-bold text-gray-400 group-hover:text-white text-center">{slot.label}</span>
+                      </label>
+                    )}
+                    
+                    <input 
+                      id={`upload-${slot.id}`} 
+                      type="file" 
+                      accept="image/*" 
+                      className="hidden" 
+                      onChange={(e) => handleImageChange(e, slot.id)} 
+                      disabled={analyzing}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
 
             {/* Action Button */}
-            {!isScanning && !scanComplete && (
-              <button 
-                onClick={handleScan}
-                className="w-full py-4 bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-slate-900 font-bold rounded-xl shadow-[0_0_20px_rgba(251,191,36,0.3)] transition-all flex items-center justify-center gap-2"
-              >
-                <Scan size={20} /> Start AI Analysis
-              </button>
-            )}
-
-            {/* SCANNING STATE */}
-            {isScanning && (
-              <div className="absolute inset-0 bg-slate-950/90 z-20 flex flex-col items-center justify-center rounded-2xl">
-                <div className="relative">
-                  <Fingerprint className="w-16 h-16 text-slate-700 absolute" />
-                  <Fingerprint className="w-16 h-16 text-amber-400 animate-pulse relative z-10" />
-                </div>
-                <p className="text-amber-400 mt-4 font-mono tracking-widest animate-pulse">PROCESSING 4 ANGLES...</p>
-              </div>
-            )}
-
-            {/* RESULT STATE */}
-            {scanComplete && (
-              <div className="absolute inset-0 bg-slate-900 z-20 flex flex-col items-center justify-center p-8 text-center rounded-2xl animate-fade-in">
-                 <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 border border-green-500/50 shadow-[0_0_30px_rgba(34,197,94,0.3)]">
-                    <CheckCircle className="w-8 h-8 text-green-400" />
-                 </div>
-                 <h3 className="text-2xl font-bold text-white mb-2 font-[Cinzel]">Analysis Complete!</h3>
-                 <p className="text-gray-400 mb-6 text-sm">AI has successfully mapped 128 points on your hands.</p>
-                 
-                 <div className="grid grid-cols-2 gap-3 w-full max-w-sm mb-6">
-                    <div className="bg-slate-800 p-3 rounded-lg text-left">
-                      <span className="text-xs text-gray-500 block">Life Line</span>
-                      <span className="text-green-400 font-bold">Strong (85%)</span>
-                    </div>
-                    <div className="bg-slate-800 p-3 rounded-lg text-left">
-                      <span className="text-xs text-gray-500 block">Luck Line</span>
-                      <span className="text-amber-400 font-bold">Rising (92%)</span>
-                    </div>
-                 </div>
-
-                 <button 
-                  onClick={() => setScanComplete(false)} 
-                  className="mb-3 w-full py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition-colors border border-slate-700"
-                 >
-                   Scan New Hand
-                 </button>
-                 <button className="text-amber-400 text-sm font-bold hover:underline flex items-center gap-1">
-                   Download Full Report <ArrowRight size={14} />
-                 </button>
-              </div>
-            )}
+            <button 
+              onClick={startAnalysis}
+              disabled={analyzing}
+              className="w-full bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-slate-900 font-bold py-4 rounded-xl transition-all shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed hover:scale-[1.02]"
+            >
+              {analyzing ? (
+                <>
+                  <Loader2 className="animate-spin" /> Analyzing Patterns...
+                </>
+              ) : (
+                <>
+                  <Sparkles size={20} /> Start Analysis
+                </>
+              )}
+            </button>
           </div>
 
-          {/* RIGHT: INFO TEXT (Same as before but adjusted) */}
-          <div className="space-y-6 pt-4">
-             {/* ... (Existing Info content can remain same, or I can paste if needed) ... */}
-             <h3 className="text-2xl font-bold text-white font-[Cinzel]">Why 4 Angles?</h3>
-             <ul className="space-y-4">
-                <li className="flex gap-4">
-                  <div className="w-8 h-8 bg-amber-500/20 rounded-full flex items-center justify-center text-amber-400 font-bold shrink-0">1</div>
-                  <div>
-                    <h4 className="text-white font-bold">Both Palms (Karma & Destiny)</h4>
-                    <p className="text-sm text-gray-400">Left hand shows what you were born with; Right hand shows what you made of it.</p>
+          {/* --- RESULT / INFO SECTION --- */}
+          <div className="bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 shadow-2xl min-h-[500px] flex flex-col relative overflow-hidden">
+             
+             {/* Background Blob */}
+             <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-32 h-32 rounded-full bg-purple-500/10 blur-2xl"></div>
+
+            <h2 className="text-2xl font-bold text-white mb-6 font-[Cinzel]">Analysis Report</h2>
+            
+            {showResult ? (
+              // --- COMING SOON MESSAGE (Ye naya feature hai) ---
+              <div className="flex-1 flex flex-col items-center justify-center text-center space-y-6 animate-fade-in p-4">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-amber-400/20 to-purple-500/20 border border-amber-500/30 flex items-center justify-center relative">
+                   <div className="absolute inset-0 bg-amber-500/20 blur-xl rounded-full animate-pulse"></div>
+                   <Sparkles className="w-10 h-10 text-amber-400 relative z-10" />
+                </div>
+                
+                <div className="space-y-2">
+                  <h3 className="text-2xl font-bold text-white">Detailed Report Coming Soon!</h3>
+                  <p className="text-amber-200/80 font-medium">Under Development</p>
+                </div>
+
+                <div className="bg-slate-950/50 p-6 rounded-2xl border border-white/10 max-w-sm">
+                  <p className="text-gray-300 leading-relaxed text-sm">
+                    Our AI is learning to read complex mounts and lines from <span className="text-amber-400">multiple angles</span>. 
+                    The full multi-angle analysis feature will be available in the next update.
+                  </p>
+                  <div className="mt-4 flex items-center justify-center gap-2 text-xs text-gray-500 font-bold uppercase tracking-wider">
+                    <Info size={14} /> Stay Tuned
                   </div>
-                </li>
-                <li className="flex gap-4">
-                  <div className="w-8 h-8 bg-amber-500/20 rounded-full flex items-center justify-center text-amber-400 font-bold shrink-0">2</div>
-                  <div>
-                    <h4 className="text-white font-bold">Side View (Mounts)</h4>
-                    <p className="text-sm text-gray-400">Determines the thickness of mounts (Venus/Moon) indicating energy levels.</p>
-                  </div>
-                </li>
-             </ul>
+                </div>
+              </div>
+            ) : (
+              // --- DEFAULT INSTRUCTIONS ---
+              <div className="flex-1 flex flex-col justify-center space-y-6">
+                 <div className="space-y-4">
+                    <p className="text-gray-400 text-sm mb-4">Why 4 Angles?</p>
+                    {[
+                      'Left Palm: Reveals inherited potential & past.',
+                      'Right Palm: Shows current life & future choices.',
+                      'Side View: Analyzes the mount heights (Venus/Moon).',
+                      'Close Up: Detects minor lines and breaks.'
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-3 p-3 bg-slate-950/30 rounded-xl border border-white/5">
+                        <CheckCircle size={18} className="text-amber-500/70 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-300 text-sm">{item}</span>
+                      </div>
+                    ))}
+                 </div>
+                 <div className="mt-auto p-4 bg-amber-500/5 rounded-xl border border-amber-500/10 text-center">
+                    <p className="text-xs text-amber-200/60">
+                      Note: Upload clear images in good lighting for best results.
+                    </p>
+                 </div>
+              </div>
+            )}
           </div>
 
         </div>

@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Star, MessageCircle, Phone } from 'lucide-react';
-import pujaService from '/puja.jpg'
-import gemstone from '/gemstone.jpg'
-import kundali from '/kundlimilan.jpg'
-import palm from '/palm.jpg'
-// Swiper ke styles import karna zaruri hai
+import { Link, useNavigate } from 'react-router-dom'; // <--- useNavigate added
+import { ArrowRight, Star, MessageCircle } from 'lucide-react';
+import { useAlert } from '../../context/AlertContext';
+// Images Import (As per your code)
+import pujaService from '/puja.jpg';
+import gemstone from '/gemstone.jpg';
+import kundali from '/kundlimilan.jpg';
+import palm from '/palm.jpg';
+
+// Swiper Styles
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-// --- SLIDE DATA (5 Slides: 3 Services + 2 Ads) ---
+// --- SLIDE DATA ---
 const slides = [
   {
     id: 1,
@@ -40,7 +43,7 @@ const slides = [
     subtitle: "Expert Pandits for Graha Shanti & Dosha Nivaran.",
     btnText: "Book Now",
     link: "/services",
-    isAd: true // Ad Slide
+    isAd: true 
   },
   {
     id: 4,
@@ -58,11 +61,33 @@ const slides = [
     subtitle: "Wear your lucky stone for success & prosperity.",
     btnText: "Visit Shop",
     link: "/shop",
-    isAd: true // Ad Slide
+    isAd: true 
   }
 ];
 
 const HomeSlider = () => {
+  const navigate = useNavigate(); // <--- Hook for redirection
+const { showAlert } = useAlert();
+  // --- SECURITY CHECK FUNCTION ---
+  const handleChatClick = () => {
+    const user = localStorage.getItem("user"); // Check local storage
+    
+    if (!user) {
+      // Agar User Login Nahi Hai -> Alert & Redirect
+      showAlert(
+        "Login Required 🔒",                     // Title
+        "To chat with our premium Astrologers, you need to login first.", // Message
+        "warning",                               // Type (warning/error/success)
+        () => navigate("/login")                 // Action after clicking OK
+      );
+      navigate("/login");
+    } else {
+      // Agar User Login Hai -> Open WhatsApp
+      window.open('https://wa.me/919541371359', '_blank');
+    }
+  };
+  // -------------------------------
+
   // --- TYPEWRITER EFFECT LOGIC ---
   const [text, setText] = useState('');
   const fullText = "Trusted Astrology Guidance...";
@@ -73,7 +98,7 @@ const HomeSlider = () => {
       const timeout = setTimeout(() => {
         setText((prev) => prev + fullText[index]);
         setIndex((prev) => prev + 1);
-      }, 100); // Typing speed
+      }, 100); 
       return () => clearTimeout(timeout);
     }
   }, [index]);
@@ -107,7 +132,7 @@ const HomeSlider = () => {
             {/* Content Box */}
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 max-w-5xl mx-auto pt-16">
               
-              {/* Ad Label (Agar Ad hai toh) */}
+              {/* Ad Label */}
               {slide.isAd && (
                 <span className="mb-4 px-4 py-1 bg-amber-500/20 border border-amber-500/50 text-amber-300 text-xs font-bold rounded-full uppercase tracking-widest flex items-center gap-2 animate-fade-in">
                   <Star size={12} fill="currentColor" /> Sponsored
@@ -119,7 +144,7 @@ const HomeSlider = () => {
                 {slide.title}
               </h1>
               
-              {/* Subtitle with Typewriter Effect (Sirf pehli line ya static) */}
+              {/* Typewriter Subtitle */}
               <div className="h-8 mb-2 hidden md:block">
                 <p className="text-amber-400 font-mono text-sm md:text-lg tracking-widest uppercase">
                   {text}<span className="animate-pulse">|</span>
@@ -143,9 +168,9 @@ const HomeSlider = () => {
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
 
-                {/* Pulse Call/WhatsApp Button */}
+                {/* SECURE Chat Button (Modified) */}
                 <button 
-                  onClick={() => window.open('https://wa.me/919541371359', '_blank')}
+                  onClick={handleChatClick} // <--- Ab ye function call hoga
                   className="px-8 py-4 bg-slate-900/50 backdrop-blur-md border border-amber-500 text-amber-400 font-bold rounded-full text-lg hover:bg-amber-500 hover:text-black transition-all duration-300 animate-pulse flex items-center gap-2"
                 >
                   <MessageCircle size={20} /> Chat Now

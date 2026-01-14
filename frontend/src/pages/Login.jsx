@@ -17,6 +17,7 @@ const Login = () => {
     setLoading(true);
 
     try {
+      // Note: Make sure your backend endpoint is correct (e.g., /login or /token)
       const response = await fetch("http://127.0.0.1:8000/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -29,9 +30,20 @@ const Login = () => {
         throw new Error(data.detail || "Login failed");
       }
 
-      // Success
-      setSuccess("Login Successful! Redirecting...");
-      localStorage.setItem("user", JSON.stringify(data));
+      // --- INJECT SUBSCRIPTION STATUS (New Logic) ---
+      // Abhi backend se status nahi aa rha, isliye hum dummy status jod rahe hain.
+      // 'expired' = Banner dikhega aur features block honge.
+      // 'active' = Sab normal chalega.
+      const userWithStatus = {
+        ...data,
+        subscriptionStatus: "active" // Isse 'active' change kar lena jab test ho jaye
+      };
+
+      // Success Message
+      setSuccess("Login Successful! Check Home for Premium Banner.");
+      
+      // Store user with status in LocalStorage
+      localStorage.setItem("user", JSON.stringify(userWithStatus));
       
       // Redirect after 1.5 seconds
       setTimeout(() => {
@@ -48,15 +60,23 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="w-full max-w-5xl h-[600px] flex rounded-2xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900/50">
         
-        {/* Left Side */}
+        {/* Left Side (Image & Branding) */}
         <div className="hidden md:flex w-1/2 relative flex-col justify-between p-12 text-white bg-black">
           <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2094&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover opacity-60" alt="bg" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50"></div>
-          <div className="relative z-10"><Link to="/" className="flex items-center space-x-2 w-fit"><Sparkles className="text-amber-500" /> <span className="text-2xl font-bold font-[Cinzel]">Astro<span className="text-amber-400">Apna</span></span></Link></div>
-          <div className="relative z-10"><h2 className="text-4xl font-bold mb-4 font-[Cinzel]">Unlock Your Cosmic Destiny</h2><p className="text-gray-300">Sign in to access personalized daily horoscopes.</p></div>
+          <div className="relative z-10">
+            <Link to="/" className="flex items-center space-x-2 w-fit">
+                <Sparkles className="text-amber-500" /> 
+                <span className="text-2xl font-bold font-[Cinzel]">Astro<span className="text-amber-400">Jaya</span></span>
+            </Link>
+          </div>
+          <div className="relative z-10">
+            <h2 className="text-4xl font-bold mb-4 font-[Cinzel]">Unlock Your Cosmic Destiny</h2>
+            <p className="text-gray-300">Sign in to access personalized Kundli & Premium features.</p>
+          </div>
         </div>
 
-        {/* Right Side */}
+        {/* Right Side (Form) */}
         <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
             <div className="max-w-md mx-auto w-full">
                 <h2 className="text-3xl font-bold text-white mb-2 font-[Cinzel]">Welcome Back</h2>
@@ -76,7 +96,7 @@ const Login = () => {
                             <input 
                                 type="email" 
                                 placeholder="name@example.com" 
-                                className="w-full bg-slate-950 border border-slate-700 text-white rounded-xl py-3 pl-10 pr-4 focus:border-amber-500 focus:outline-none"
+                                className="w-full bg-slate-950 border border-slate-700 text-white rounded-xl py-3 pl-10 pr-4 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
                                 onChange={(e) => setFormData({...formData, email: e.target.value})}
                                 required
                             />
@@ -90,17 +110,17 @@ const Login = () => {
                             <input 
                                 type={showPassword ? "text" : "password"} 
                                 placeholder="••••••••" 
-                                className="w-full bg-slate-950 border border-slate-700 text-white rounded-xl py-3 pl-10 pr-12 focus:border-amber-500 focus:outline-none"
+                                className="w-full bg-slate-950 border border-slate-700 text-white rounded-xl py-3 pl-10 pr-12 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
                                 onChange={(e) => setFormData({...formData, password: e.target.value})}
                                 required
                             />
-                            <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-3.5 text-gray-500 hover:text-white">
+                            <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-3.5 text-gray-500 hover:text-white transition-colors">
                                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                             </button>
                         </div>
                     </div>
 
-                    <button disabled={loading} className="w-full bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+                    <button disabled={loading} className="w-full bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3.5 rounded-xl transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed transform active:scale-95">
                         {loading ? <Loader2 className="animate-spin" /> : "Sign In"} 
                         {!loading && <ArrowRight size={18} />}
                     </button>
@@ -111,7 +131,7 @@ const Login = () => {
                     <div className="relative flex justify-center text-sm"><span className="px-4 bg-slate-900 text-gray-500">Or continue with</span></div>
                 </div>
 
-                <button disabled className="w-full bg-slate-800 text-gray-400 cursor-not-allowed font-semibold py-3 rounded-xl flex items-center justify-center gap-2 opacity-70">
+                <button disabled className="w-full bg-slate-800 text-gray-400 cursor-not-allowed font-semibold py-3 rounded-xl flex items-center justify-center gap-2 opacity-70 border border-slate-700">
                    <img src="https://www.svgrepo.com/show/475656/google-color.svg" className="w-5 h-5 grayscale opacity-50" alt="Google" />
                    Sign in with Google (Coming Soon)
                 </button>
