@@ -94,7 +94,33 @@ const AppContent = () => {
         style={{ top: isNoLayoutPage ? '0px' : '80px' }} 
         className="z-[100]" // Ensure it's above everything else
       />
+<div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        
+        {/* 1. Base Dark Background Color */}
+        <div className="absolute inset-0 bg-[#0f172a]"></div>
 
+        {/* 2. Hand Image (Base Layer) */}
+        {/* 'w-full h-full object-cover' ensures it covers the whole screen */}
+        <div className="absolute inset-0 flex items-end justify-center">
+             <img 
+               src="/hand.png" 
+               alt="Mystic Hand" 
+               className="w-full h-full object-cover object-bottom opacity-80" 
+             />
+        </div>
+
+        {/* 3. Spinning Chakra (Top Layer) */}
+        {/* Placed AFTER hand div so it appears ON TOP */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex justify-center items-center">
+           <img 
+             src="/chakra.png" 
+             alt="Mystic Chakra" 
+             // mix-blend-plus-lighter adds a glowing effect over the hand
+             className="w-full h-full object-cover object-bottom opacity-50 animate-[spin_60s_linear_infinite] mix-blend-plus-lighter" 
+           />
+        </div>
+
+      </div>
       <div className="min-h-screen bg-black/80 text-white font-[Inter]">
         
         {/* Navbar */}

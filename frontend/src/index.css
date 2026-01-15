@@ -2,11 +2,11 @@
 
 /* AstroJaya Theme Variables */
 @theme {
-  --color-astro-dark: #0f172a;  /* Raat ka andhera */
-  --color-astro-gold: #fbbf24;  /* Sone ki chamak */
+  --color-astro-dark: #0f172a;   /* Raat ka andhera */
+  --color-astro-gold: #fbbf24;   /* Sone ki chamak */
   --color-astro-purple: #581c87; /* Mystical vibe */
   
-  --font-display: "Cinzel", serif; /* Heading font */
+  --font-display: "Cinzel", serif;  /* Heading font */
   --font-body: "Inter", sans-serif; /* Reading font */
 }
 
@@ -17,14 +17,11 @@ body {
   color: white;
   font-family: var(--font-body);
 
-  /* --- NEW BACKGROUND SETTINGS (Palm Image) --- */
-  background-image: url('/bg-palm.jpg'); /* Public folder se image */
-  background-attachment: fixed;          /* Parallax effect ke liye */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;                /* Screen cover kare */
+  /* --- NOTE: Static Background Removed --- */
+  /* Purani image hata di gayi hai taaki App.jsx wala animated background dikhe */
+  /* background-image: url('/bg-palm.jpg'); */
   
-  /* Agar image load na ho to ye color dikhega */
+  /* Base background color (just in case) */
   background-color: var(--color-astro-dark); 
 }
 
@@ -32,13 +29,16 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #1e293b;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #475569;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-astro-gold);
 }
