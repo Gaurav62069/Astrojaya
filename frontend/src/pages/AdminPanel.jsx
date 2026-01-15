@@ -48,17 +48,17 @@ const AdminPanel = () => {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="p-6 bg-slate-900/50 border border-white/10 rounded-2xl">
+          <div className="p-6 bg-slate-900/50 border border-white/10 backdrop-blur-md rounded-2xl">
             <h3 className="text-gray-400 text-sm">Total Users</h3>
             <p className="text-3xl font-bold text-white mt-2">{users.length}</p>
           </div>
-          <div className="p-6 bg-green-900/10 border border-green-500/20 rounded-2xl">
+          <div className="p-6 bg-green-900/10 border border-green-500/20 backdrop-blur-md rounded-2xl">
             <h3 className="text-green-400 text-sm">Active Premium</h3>
             <p className="text-3xl font-bold text-green-400 mt-2">
               {users.filter(u => u.status === 'active').length}
             </p>
           </div>
-          <div className="p-6 bg-red-900/10 border border-red-500/20 rounded-2xl">
+          <div className="p-6 bg-red-900/10 border border-red-500/20 backdrop-blur-md rounded-2xl">
             <h3 className="text-red-400 text-sm">Expired / Blocked</h3>
             <p className="text-3xl font-bold text-red-400 mt-2">
               {users.filter(u => u.status !== 'active').length}
@@ -67,7 +67,7 @@ const AdminPanel = () => {
         </div>
 
         {/* User Table */}
-        <div className="bg-slate-900/80 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
+        <div className="bg-slate-800/50 border border-white/10 rounded-2xl overflow-hidden shadow-xl backdrop-blur-md">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead className="bg-slate-950 text-gray-400 uppercase text-xs font-bold tracking-wider">
