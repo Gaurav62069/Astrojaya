@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, User, Sparkles, CalendarCheck, LogOut } from 'lucide-react';
-
+import { Menu, X, User, CalendarCheck, LogOut } from 'lucide-react';
+import logo from '/logo.png'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState(null); // User state manage karne ke liye
@@ -45,9 +45,9 @@ const Navbar = () => {
       <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4 md:px-8">
         
         {/* --- LOGO --- */}
-        <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse group">
-          <div className="bg-gradient-to-br from-amber-400 to-yellow-700 p-2 rounded-xl shadow-[0_0_15px_rgba(251,191,36,0.3)] group-hover:shadow-[0_0_25px_rgba(251,191,36,0.6)] transition-all duration-300">
-             <Sparkles className="w-5 h-5 text-black fill-black" />
+        <Link to="/" className="flex items-center space-x-1 rtl:space-x-reverse group">
+          <div className="  rounded-xl group-hover:shadow-[0_0_25px_rgba(251,191,36,0.6)] transition-all duration-300">
+             <img src={logo} alt='loading' className="w-12 h-10" />
           </div>
           <span className="self-center text-2xl font-bold whitespace-nowrap text-white font-[Cinzel] tracking-wide">
             Astro<span className="text-amber-400">Apna</span>

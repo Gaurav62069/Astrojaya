@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, Eye, EyeOff, ArrowRight, Sparkles, Loader2, CheckCircle } from 'lucide-react';
-
+import logo from '/logo.png';
 const Login = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -65,8 +65,8 @@ const Login = () => {
           <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2094&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover opacity-60" alt="bg" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50"></div>
           <div className="relative z-10">
-            <Link to="/" className="flex items-center space-x-2 w-fit">
-                <Sparkles className="text-amber-500" /> 
+            <Link to="/" className="flex items-center space-x-1 w-fit">
+                <img src={logo} alt="loading" className="w-12 h-10" /> 
                 <span className="text-2xl font-bold font-[Cinzel]">Astro<span className="text-amber-400">Jaya</span></span>
             </Link>
           </div>

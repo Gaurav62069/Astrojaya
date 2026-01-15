@@ -6,6 +6,7 @@ import Footer from './components/layout/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import { AlertTriangle,Sparkles  } from 'lucide-react';
 import { AlertProvider } from './context/AlertContext';
+import logo from '/logo.png'
 // --- PAGES IMPORT ---
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -22,19 +23,19 @@ import Blog from './pages/Blog';
 import Tarot from './pages/Tarot';
 // --- GLOBAL SPINNER (Initial Load) ---
 const GlobalSpinner = () => (
-  <div className="fixed inset-0 bg-black/80 z-50 flex flex-col items-center justify-center overflow-hidden">
+  <div className="fixed inset-0 bg-slate-800/60 z-50 flex flex-col items-center justify-center overflow-hidden">
     
     {/* Background Mystical Effect */}
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-amber-500/10 blur-3xl rounded-full animate-pulse"></div>
 
     {/* Logo Container */}
-    <div className="relative flex flex-col items-center z-10 space-y-6">
+    <div className="relative flex flex-col items-center z-10 space-y-2">
       {/* Animated Icon */}
       <div className="relative">
          {/* Glow behind icon */}
          <div className="absolute inset-0 bg-amber-500/30 blur-xl rounded-full animate-ping-slow"></div>
          {/* Slow Spinning Sparkle */}
-         <Sparkles className="w-24 h-24 text-amber-500 animate-[spin_4s_linear_infinite] relative z-10" />
+         <img src={logo} alt='loading' className="w-28 h-24  animate-[spin_4s_linear_infinite] relative z-10" />
       </div>
       
       {/* Animated Text */}
@@ -121,7 +122,7 @@ const AppContent = () => {
         </div>
 
       </div>
-      <div className="min-h-screen bg-black/80 text-white font-[Inter]">
+      <div className="min-h-screen bg-slate-800/60 text-white font-[Inter]">
         
         {/* Navbar */}
         {!isNoLayoutPage && <Navbar />}

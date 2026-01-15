@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, Facebook, Twitter, Instagram, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
-
+import {  Facebook, Twitter, Instagram, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import logo from '/logo.png';
 const Footer = () => {
   return (
     <footer className="bg-transparent border-t border-slate-800 text-gray-300">
@@ -11,9 +11,9 @@ const Footer = () => {
           
           {/* Column 1: Brand & About */}
           <div className="space-y-4">
-            <Link to="/" className="flex items-center space-x-2 group">
-              <div className="bg-gradient-to-br from-amber-400 to-yellow-600 p-2 rounded-lg">
-                <Sparkles className="w-5 h-5 text-slate-900 fill-slate-900" />
+            <Link to="/" className="flex items-center space-x-1 group">
+              <div className="rounded-lg">
+                <img src={logo} className="w-12 h-10" />
               </div>
               <span className="text-2xl font-bold text-white font-[Cinzel]">
                 Astro<span className="text-amber-400">Apna</span>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { User, Mail, Lock, Eye, EyeOff, ArrowRight, Sparkles, Loader2, CheckCircle } from 'lucide-react';
-
+import { User, Mail, Lock, Eye, EyeOff, ArrowRight, Loader2, CheckCircle } from 'lucide-react';
+import logo from '/logo.png';
 const Signup = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -80,7 +80,7 @@ const Signup = () => {
         <div className="hidden md:flex w-1/2 relative flex-col justify-between p-12 text-white bg-black">
           <img src="https://images.unsplash.com/photo-1515942400420-2b98fed1f515?q=80&w=1974&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover opacity-60" alt="bg" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50"></div>
-          <div className="relative z-10"><Link to="/" className="flex items-center space-x-2 w-fit"><Sparkles className="text-amber-500" /> <span className="text-2xl font-bold font-[Cinzel]">Astro<span className="text-amber-400">Apna</span></span></Link></div>
+          <div className="relative z-10"><Link to="/" className="flex items-center space-x-1 w-fit"><img src={logo} alt="loading" className="w-12 h-10" />  <span className="text-2xl font-bold font-[Cinzel]">Astro<span className="text-amber-400">Apna</span></span></Link></div>
           <div className="relative z-10"><h2 className="text-3xl font-bold mb-4 font-[Cinzel]">Join Our Spiritual Community</h2><p className="text-gray-300">Create an account to get personalized Kundli analysis.</p></div>
         </div>
 
