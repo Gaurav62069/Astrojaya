@@ -2,6 +2,8 @@ fastapi
 uvicorn
 motor
 passlib[bcrypt]
+email-validator
+ephem
+pydantic
 python-multipart
 python-dotenv
-email-validator

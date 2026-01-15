@@ -103,7 +103,7 @@ const AppContent = () => {
         {/* 'w-full h-full object-cover' ensures it covers the whole screen */}
         <div className="absolute inset-0 flex items-end justify-center">
              <img 
-               src="/hand.png" 
+               src="https://res.cloudinary.com/ddnpzsybs/image/upload/v1768466744/hand_uwngsl.jpg" 
                alt="Mystic Hand" 
                className="w-full h-full object-cover object-bottom opacity-80" 
              />
@@ -113,7 +113,7 @@ const AppContent = () => {
         {/* Placed AFTER hand div so it appears ON TOP */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex justify-center items-center">
            <img 
-             src="/chakra.png" 
+             src="https://res.cloudinary.com/ddnpzsybs/image/upload/v1768466741/chakra_uvl240.png" 
              alt="Mystic Chakra" 
              // mix-blend-plus-lighter adds a glowing effect over the hand
              className="w-full h-full object-cover object-bottom opacity-50 animate-[spin_60s_linear_infinite] mix-blend-plus-lighter" 

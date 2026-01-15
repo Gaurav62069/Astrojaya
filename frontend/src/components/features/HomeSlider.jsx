@@ -4,11 +4,7 @@ import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
 import { Link, useNavigate } from 'react-router-dom'; // <--- useNavigate added
 import { ArrowRight, Star, MessageCircle } from 'lucide-react';
 import { useAlert } from '../../context/AlertContext';
-// Images Import (As per your code)
-import pujaService from '/puja.jpg';
-import gemstone from '/gemstone.jpg';
-import kundali from '/kundlimilan.jpg';
-import palm from '/palm.jpg';
+
 
 // Swiper Styles
 import 'swiper/css';
@@ -29,7 +25,7 @@ const slides = [
   },
   {
     id: 2,
-    image: palm, 
+    image: "https://res.cloudinary.com/ddnpzsybs/image/upload/v1768466745/palm_y0fftu.jpg", 
     title: "Palm Reading",
     subtitle: "Scan your hand from 4 angles and reveal hidden secrets.",
     btnText: "Try AI Scan Now",
@@ -38,7 +34,7 @@ const slides = [
   },
   {
     id: 3,
-    image: pujaService, 
+    image: "https://res.cloudinary.com/ddnpzsybs/image/upload/v1768466746/puja_hla3lq.jpg", 
     title: "Premium Pooja Services",
     subtitle: "Expert Pandits for Graha Shanti & Dosha Nivaran.",
     btnText: "Book Now",
@@ -47,7 +43,7 @@ const slides = [
   },
   {
     id: 4,
-    image: kundali, 
+    image: "https://res.cloudinary.com/ddnpzsybs/image/upload/v1768466745/kundlimilan_i7dw7s.jpg", 
     title: "Kundli Milan",
     subtitle: "Find the perfect match with detailed Guna Milan & analysis.",
     btnText: "Check Compatibility",
@@ -56,7 +52,7 @@ const slides = [
   },
   {
     id: 5,
-    image: gemstone,
+    image: "https://res.cloudinary.com/ddnpzsybs/image/upload/v1768466745/gemstone_pycvp2.jpg",
     title: "Certified Gemstones",
     subtitle: "Wear your lucky stone for success & prosperity.",
     btnText: "Visit Shop",
