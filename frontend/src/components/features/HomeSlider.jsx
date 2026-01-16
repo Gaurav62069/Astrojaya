@@ -100,7 +100,7 @@ const { showAlert } = useAlert();
   }, [index]);
 
   return (
-    <div className="relative w-full h-[600px] md:h-[700px] bg-transparent">
+    <div className="relative w-full h-[600px] md:h-[700px] ">
       <Swiper
         modules={[Autoplay, EffectFade, Navigation, Pagination]}
         effect={'fade'}
@@ -119,11 +119,11 @@ const { showAlert } = useAlert();
             <img 
               src={slide.image} 
               alt={slide.title} 
-              className="absolute inset-0 w-full h-full object-cover opacity-60"
+              className="absolute inset-0 w-full h-full object-cover"
             />
             
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-black/90"></div>
+            {/* <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/40 to-black/90"></div> */}
 
             {/* Content Box */}
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 max-w-5xl mx-auto pt-16">

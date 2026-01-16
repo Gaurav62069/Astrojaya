@@ -122,7 +122,7 @@ const AppContent = () => {
         </div>
 
       </div>
-      <div className="min-h-screen bg-slate-800/60 text-white font-[Inter]">
+      <div className="min-h-screen bg-slate-800/40 text-white font-[Inter]">
         
         {/* Navbar */}
         {!isNoLayoutPage && <Navbar />}
