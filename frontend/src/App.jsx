@@ -104,7 +104,7 @@ const AppContent = () => {
         {/* 'w-full h-full object-cover' ensures it covers the whole screen */}
         <div className="absolute inset-0 flex items-end justify-center">
              <img 
-               src="https://res.cloudinary.com/ddnpzsybs/image/upload/v1768466744/hand_uwngsl.jpg" 
+               src="https://res.cloudinary.com/ddnpzsybs/image/upload/v1768736469/IMG_20260118_170740_xtbyel.jpg" 
                alt="Mystic Hand" 
                className="w-full h-full object-cover object-bottom opacity-80" 
              />
