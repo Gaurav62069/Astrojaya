@@ -12,7 +12,7 @@ const Contact = () => {
           <h1 className="text-4xl md:text-5xl font-bold text-white mt-2 font-[Cinzel]">
             Get in <span className="text-amber-400">Touch</span>
           </h1>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-gray-200 mt-4 max-w-2xl mx-auto">
             Have questions about your horoscope or need a personalized consultation? 
             Our support team and astrologers are ready to assist you.
           </p>
@@ -74,7 +74,7 @@ const Contact = () => {
                   <Phone className="text-amber-400 group-hover:text-slate-900" />
                 </div>
                 <h4 className="text-white font-bold mb-1">Phone</h4>
-                <p className="text-gray-400 text-sm">+91 98765 43210</p>
+                <p className="text-gray-400 text-sm">+91 95413 71359</p>
                 <p className="text-gray-500 text-xs mt-1">Mon-Fri 9am to 6pm</p>
               </div>
 
@@ -83,7 +83,7 @@ const Contact = () => {
                   <Mail className="text-amber-400 group-hover:text-slate-900" />
                 </div>
                 <h4 className="text-white font-bold mb-1">Email</h4>
-                <p className="text-gray-400 text-sm">support@astroApna.com</p>
+                <p className="text-gray-400 text-sm">Astroapna45@gmail.com</p>
                 <p className="text-gray-500 text-xs mt-1">Online 24/7</p>
               </div>
 
@@ -92,8 +92,8 @@ const Contact = () => {
                   <MapPin className="text-amber-400 group-hover:text-slate-900" />
                 </div>
                 <h4 className="text-white font-bold mb-1">Location</h4>
-                <p className="text-gray-400 text-sm">Vedic Center, Mumbai</p>
-                <p className="text-gray-500 text-xs mt-1">Maharashtra, India</p>
+                <p className="text-gray-400 text-sm"></p>
+                <p className="text-gray-500 text-xs mt-1"></p>
               </div>
 
               <div className="bg-slate-800/50 backdrop-blur-md p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors group">

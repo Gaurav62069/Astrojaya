@@ -68,19 +68,10 @@ const { showAlert } = useAlert();
   const handleChatClick = () => {
     const user = localStorage.getItem("user"); // Check local storage
     
-    if (!user) {
-      // Agar User Login Nahi Hai -> Alert & Redirect
-      showAlert(
-        "Login Required 🔒",                     // Title
-        "To chat with our premium Astrologers, you need to login first.", // Message
-        "warning",                               // Type (warning/error/success)
-        () => navigate("/login")                 // Action after clicking OK
-      );
-      navigate("/login");
-    } else {
+   
       // Agar User Login Hai -> Open WhatsApp
       window.open('https://wa.me/919541371359', '_blank');
-    }
+    
   };
   // -------------------------------
 
@@ -142,13 +133,13 @@ const { showAlert } = useAlert();
               
               {/* Typewriter Subtitle */}
               <div className="h-8 mb-2 hidden md:block">
-                <p className="text-amber-400 font-mono text-sm md:text-lg tracking-widest uppercase">
+                <p className="text-amber-400 font-mono text-sm md:text-lg tracking-widest uppercase font-bold drop-shadow-xl">
                   {text}<span className="animate-pulse">|</span>
                 </p>
               </div>
 
               {/* Slide Subtitle */}
-              <p className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl font-light drop-shadow-md tracking-wide">
+              <p className="text-lg md:text-xl text-gray-100 mb-10 max-w-2xl font-light drop-shadow-md tracking-wide">
                 {slide.subtitle}
               </p>
               

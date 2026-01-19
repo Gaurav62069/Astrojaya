@@ -68,7 +68,7 @@ const Services = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-white font-[Cinzel] mt-2">
             Our <span className="text-amber-400">Services</span>
           </h1>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-gray-200 mt-4 max-w-2xl mx-auto">
             Explore our wide range of Vedic services designed to bring harmony, success, and peace to your life.
           </p>
         </div>
@@ -81,7 +81,7 @@ const Services = () => {
                 <service.icon size={28} />
               </div>
               <h3 className="text-2xl font-bold text-white mb-3 font-[Cinzel]">{service.title}</h3>
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p className="text-gray-200 mb-6 leading-relaxed">
                 {service.desc}
               </p>
               <Link to="/book" className="text-amber-400 text-sm font-bold uppercase tracking-wider hover:text-white transition-colors">

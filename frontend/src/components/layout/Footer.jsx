@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {  Facebook, Twitter, Instagram, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import {  Facebook, Twitter, Instagram, Mail, Phone, MapPin, ArrowRight, Youtube } from 'lucide-react';
 import logo from '/logo.png';
 const Footer = () => {
   return (
@@ -19,15 +19,15 @@ const Footer = () => {
                 Astro<span className="text-amber-400">Apna</span>
               </span>
             </Link>
-            <p className="text-sm leading-relaxed text-gray-400">
+            <p className="text-sm leading-relaxed text-gray-200">
               Guiding you through the stars. We combine ancient Vedic wisdom to provide accurate life predictions.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href="#" className="p-2 bg-slate-800 rounded-full hover:bg-amber-500 hover:text-slate-900 transition-all">
+              <a href="https://www.facebook.com/profile.php?id=61586677357750" className="p-2 bg-slate-800 rounded-full hover:bg-amber-500 hover:text-slate-900 transition-all">
                 <Facebook size={18} />
               </a>
-              <a href="#" className="p-2 bg-slate-800 rounded-full hover:bg-amber-500 hover:text-slate-900 transition-all">
-                <Twitter size={18} />
+              <a href="https://youtube.com/@astroapna?si=trojcdaH-j45HoGa" className="p-2 bg-slate-800 rounded-full hover:bg-amber-500 hover:text-slate-900 transition-all">
+                <Youtube size={18} />
               </a>
               <a href="https://www.instagram.com/astroapna_?igsh=MWpiN2FzN255MW5uag==" className="p-2 bg-slate-800 rounded-full hover:bg-amber-500 hover:text-slate-900 transition-all">
                 <Instagram size={18} />
@@ -61,10 +61,6 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-bold text-lg mb-6 font-[Cinzel]">Contact Us</h3>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-amber-400 shrink-0 mt-1" />
-                <span>123, Vedic Street, Spiritual Hub, India - 400001</span>
-              </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-amber-400 shrink-0" />
                 <span>+91 95413 71359</span>

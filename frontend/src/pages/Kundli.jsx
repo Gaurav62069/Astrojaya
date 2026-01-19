@@ -90,7 +90,7 @@ const Kundli = () => {
           <h1 className="text-4xl md:text-5xl font-bold font-[Cinzel] mb-4 text-white">
             Janam <span className="text-amber-400">Kundli</span>
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-200 text-lg max-w-2xl mx-auto">
             Generate your detailed Vedic Birth Chart instantly. Enter your birth details below.
           </p>
         </div>

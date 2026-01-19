@@ -48,7 +48,7 @@ const ZodiacSection = () => {
               </h3>
               
               {/* Date */}
-              <p className="text-xs text-gray-400 mt-2">{sign.date}</p>
+              <p className="text-xs text-gray-200 mt-2">{sign.date}</p>
             </Link>
           ))}
         </div>

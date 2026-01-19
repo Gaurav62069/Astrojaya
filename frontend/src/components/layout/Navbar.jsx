@@ -100,8 +100,8 @@ const Navbar = () => {
         </div>
 
         {/* --- NAVIGATION LINKS --- */}
-        <div className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isOpen ? "block bg-slate-900 absolute top-16 left-0 right-0 p-4 border-b border-white/10 md:static md:bg-transparent md:p-0 md:border-0" : "hidden"}`}>
-          <ul className="flex flex-col font-medium md:p-0 mt-4 md:space-x-6 lg:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+        <div className={`items-center  justify-between w-full md:flex md:w-auto md:order-1 ${isOpen ? "block bg-slate-900 backdrop-blur-md absolute top-16 left-0 right-0 p-4 border-b border-white/10 md:static md:bg-transparent md:p-0 md:border-0" : "hidden"}`}>
+          <ul className="flex flex-col font-medium md:p-0 mt-4 md:space-x-6 lg:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
             
             <li><Link to="/" className={`${baseStyle} ${isActive('/') ? activeStyle : inactiveStyle}`}>Home</Link></li>
             <li><Link to="/about" className={`${baseStyle} ${isActive('/about') ? activeStyle : inactiveStyle}`}>About</Link></li>

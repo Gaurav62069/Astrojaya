@@ -19,7 +19,7 @@ const ServiceCard = ({ icon: Icon, title, description, link }) => {
         {title}
       </h3>
       
-      <p className="text-gray-400 text-sm mb-6 leading-relaxed border-b border-white/5 pb-4 group-hover:border-amber-500/30 transition-colors">
+      <p className="text-gray-200 text-sm mb-6 leading-relaxed border-b border-white/5 pb-4 group-hover:border-amber-500/30 transition-colors">
         {description}
       </p>
 

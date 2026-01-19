@@ -73,7 +73,7 @@ const Palmistry = () => {
           <h1 className="text-4xl md:text-5xl font-bold font-[Cinzel] mb-4 text-white">
             Palm<span className="text-amber-400">istry</span>
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-200 text-lg max-w-2xl mx-auto">
             Upload palm photos from different angles for a precise reading.
           </p>
         </div>
@@ -172,7 +172,7 @@ const Palmistry = () => {
                 </div>
 
                 <div className="bg-slate-950/50 p-6 rounded-2xl border border-white/10 max-w-sm">
-                  <p className="text-gray-300 leading-relaxed text-sm">
+                  <p className="text-gray-200 leading-relaxed text-sm">
                     Our astrologers are learning to read complex mounts and lines from <span className="text-amber-400">multiple angles</span>. 
                     The full multi-angle analysis feature will be available in the next update.
                   </p>

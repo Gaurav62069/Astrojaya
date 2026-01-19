@@ -13,70 +13,9 @@ const About = () => {
       intro: "Jaya Ji is a renowned Vedic Astrologer with over 15 years of experience. she specializes in Palmistry, Kundli analysis, matchmaking, and Vastu Shastra. Her remedies are simple yet effective, helping thousands of people find direction in their life and career .",
       exp: "15+ Years Exp",
       rating: "4.9"
-    },
-    {
-      id: 2,
-      name: "Pandit Rahul Shastri",
-      title: "Nadi Shastra & Gemology Specialist",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop",
-      intro: "Pandit Rahul Shastri brings the ancient wisdom of Nadi Shastra to the modern world. With a deep understanding of gemstones and their planetary effects, he has guided many business tycoons and celebrities towards success and stability.",
-      exp: "12+ Years Exp",
-      rating: "4.8"
-    },
-    {
-      id: 3,
-      name: "Dr. Neha Sharma",
-      title: "Tarot Reader & Spiritual Healer",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop",
-      intro: "Dr. Neha is a gifted intuitive reader who combines Tarot with psychological insights. She helps people navigate complex relationship issues and emotional blocks. Her sessions are known to be therapeutic and deeply transformative.",
-      exp: "8+ Years Exp",
-      rating: "4.9"
-    },
-    {
-      id: 4,
-      name: "Swami Vasudev",
-      title: "Palmistry & Face Reading Master",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop",
-      intro: "Swami Vasudev has mastered the art of Samudrika Shastra (Face & Palm Reading). He can reveal your destiny, health, and wealth prospects just by analyzing your palm lines and facial features with high accuracy.",
-      exp: "20+ Years Exp",
-      rating: "5.0"
-    },
-    {
-      id: 5,
-      name: "Acharya Simran Kaur",
-      title: "Numerology & Name Correction Expert",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop",
-      intro: "Acharya Simran believes that numbers rule the universe. She specializes in name correction and mobile numerology to align your vibrations with success. Her guidance is perfect for new business names and baby naming.",
-      exp: "10+ Years Exp",
-      rating: "4.7"
-    },
-    {
-      id: 6,
-      name: "Guruji Amit Verma",
-      title: "Lal Kitab & Remedial Expert",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop",
-      intro: "Guruji Amit is famous for his quick and easy remedies from the Lal Kitab. He focuses on practical solutions for financial debts, court cases, and marriage delays without suggesting expensive rituals.",
-      exp: "18+ Years Exp",
-      rating: "4.8"
     }
   ];
-const handleChatClick = () => {
-    const user = localStorage.getItem("user"); // Check local storage
-    
-    if (!user) {
-      // Agar User Login Nahi Hai -> Alert & Redirect
-      showAlert(
-        "Login Required 🔒",                     // Title
-        "To chat with our premium Astrologers, you need to login first.", // Message
-        "warning",                               // Type (warning/error/success)
-        () => navigate("/login")                 // Action after clicking OK
-      );
-      navigate("/login");
-    } else {
-      // Agar User Login Hai -> Open WhatsApp
-      window.open('https://wa.me/919541371359', '_blank');
-    }
-  };
+
   return (
     <div className="min-h-screen pt-24 pb-12 text-white px-4 md:px-8">
       
@@ -88,7 +27,7 @@ const handleChatClick = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-white font-[Cinzel] mb-4">
             About <span className="text-amber-400">AstroApna</span>
           </h1>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-200 text-lg max-w-3xl mx-auto">
             Your trusted companion in decoding the language of the stars. We combine the 
             wisdom of ancient Vedic scriptures with modern analytical tools.
           </p>
@@ -105,7 +44,7 @@ const handleChatClick = () => {
                 <item.icon size={32} />
               </div>
               <h3 className="text-xl font-bold text-white mb-3 font-[Cinzel]">{item.title}</h3>
-              <p className="text-gray-400">{item.desc}</p>
+              <p className="text-gray-200">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -185,14 +124,14 @@ const handleChatClick = () => {
         </div>
 
         {/* Bottom Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 border-t border-white/10 pt-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 border-t border-white/10 pt-12 ">
             {[
                 { label: "Happy Users", value: "50k+" },
                 { label: "Verified Experts", value: "100+" },
                 { label: "Predictions", value: "1M+" },
                 { label: "Years Active", value: "5+" }
             ].map((stat, i) => (
-                <div key={i} className="text-center p-4 bg-slate-900/30 rounded-2xl border border-white/5">
+                <div key={i} className="text-center p-4 bg-slate-900/30 rounded-2xl border border-white/5 backdrop-blur-md">
                     <h3 className="text-3xl font-bold text-white mb-1">{stat.value}</h3>
                     <p className="text-gray-500 text-xs uppercase tracking-wider">{stat.label}</p>
                 </div>

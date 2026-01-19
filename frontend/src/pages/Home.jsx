@@ -77,12 +77,12 @@ const Home = () => {
             <h2 className="text-3xl md:text-5xl font-bold text-white font-[Cinzel] leading-tight">
               Unlock the Wisdom of the <span className="text-amber-400">Cosmos</span>
             </h2>
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-gray-200 text-lg leading-relaxed">
               At AstroApna, we bridge the gap between ancient Vedic science and modern technology. 
               Our mission is to provide you with accurate, personalized guidance to navigate life's 
               challenges with confidence.
             </p>
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-gray-200 leading-relaxed">
               Whether you are seeking answers about your career, love life, or health, our expert 
               astrology is here to light your path. Experience the power of 
               traditional Jyotish Shastra combined with precise calculations.

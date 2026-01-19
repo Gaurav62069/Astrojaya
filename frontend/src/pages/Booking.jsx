@@ -17,19 +17,10 @@ const Booking = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = localStorage.getItem("user");
-  if (!user) {
-    showAlert(
-        "Login Required 🔒",                     // Title
-        "To chat with our premium Astrologers, you need to login first.", // Message
-        "warning",                               // Type (warning/error/success)
-        () => navigate("/login")                 // Action after clicking OK
-      );
-    navigate("/login");
-    return;
-  }
+  
     // 1. WhatsApp Message Format Karna
     const phoneNumber = "919541371359"; // Apna WhatsApp Number yahan daal
-    const message = `Namaste AstroApna! %0A%0AMy Name: ${formData.name}%0ADOB: ${formData.dob}%0ATime: ${formData.time}%0APlace: ${formData.place}%0AProblem: ${formData.problem}%0A%0 book a consultation.`;
+    const message = `Namaste AstroApna! %0A%0AMy Name: ${formData.name}%0ADOB: ${formData.dob}%0ATime: ${formData.time}%0APlace: ${formData.place}%0AProblem: ${formData.problem}%0AI want to book a consultation.`;
     
     // 2. WhatsApp Open Karna
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
@@ -39,7 +30,7 @@ const Booking = () => {
 
   return (
     <div className="min-h-screen pt-24 pb-12 px-4 flex items-center justify-center">
-      <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 bg-slate-900/50 rounded-2xl border border-slate-800 overflow-hidden shadow-2xl">
+      <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 bg-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-800 overflow-hidden shadow-2xl">
         
         {/* LEFT: INFO SECTION */}
         <div className="p-8 bg-gradient-to-br from-amber-500/10 to-slate-900 flex flex-col justify-center border-r border-slate-800">
