@@ -78,7 +78,7 @@ const Footer = () => {
       {/* Copyright Bar */}
       <div className=" py-6 border-t border-slate-800 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-          <p>© 2024 AstroApna. All rights reserved.</p>
+          <p>© 2026 AstroApna. All rights reserved.</p>
           <div className="flex space-x-6">
             <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-white">Terms of Service</Link>

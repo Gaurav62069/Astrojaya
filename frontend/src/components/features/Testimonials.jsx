@@ -5,9 +5,9 @@ const reviews = [
   {
     id: 1,
     name: "Amisha Kumari",
-    role: "Business Owner",
+    role: "Student",
     image: "https://res.cloudinary.com/ddnpzsybs/image/upload/v1768795033/IMG-20260118-WA0021_pvzw0b.jpg",
-    content: "Hello, I am Amisha Kumari I really had a majestic experience with Jaya ji ,as without sharing my details she explained everything about my nature ,my situation and everything by hand reading From my point of view as a palmist she is good choice ,and i will definitely recommend her to others She gave me an advice which I will never forget , Because of her I think twice before believing anyone ,and don't get hurt. She gave me strength to face the reality And I am thankful to her",
+    content: "Hello, I am Amisha Kumari I really had a majestic experience with AstroApna ,as without sharing my details she explained everything about my nature ,my situation and everything by hand reading From my point of view as a palmist she is good choice ,and i will definitely recommend her to others She gave me an advice which I will never forget , Because of her I think twice before believing anyone ,and don't get hurt. She gave me strength to face the reality And I am thankful to her",
     rating: 5
   },
   {
@@ -21,7 +21,7 @@ const reviews = [
   {
     id: 3,
     name: "Mohit Kumar",
-    role: "Student",
+    role: "Engineer",
     image: "https://res.cloudinary.com/ddnpzsybs/image/upload/v1768795033/IMG-20260118-WA0022_e1e7pc.jpg",
     content: " Consulting Jaya ji was one of the best decisions I made. She has deep knowledge of palmistry and understood my situation perfectly without me telling her anything. The solution she gave me for my problems was very practical and effective. She gave me the confidence to handle difficult times. I highly recommend her to anyone seeking genuine guidance.",
     rating: 4
