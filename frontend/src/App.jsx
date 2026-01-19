@@ -4,9 +4,10 @@ import LoadingBar from 'react-top-loading-bar';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import { AlertTriangle,Sparkles  } from 'lucide-react';
+import { AlertTriangle, Sparkles } from 'lucide-react';
 import { AlertProvider } from './context/AlertContext';
 import logo from '/logo.png'
+
 // --- PAGES IMPORT ---
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -21,15 +22,45 @@ import Kundli from './pages/Kundli';
 import AdminPanel from './pages/AdminPanel';
 import Blog from './pages/Blog';  
 import Tarot from './pages/Tarot';
+
 // --- GLOBAL SPINNER (Initial Load) ---
 const GlobalSpinner = () => (
-  <div className="fixed inset-0 bg-slate-800/60 z-50 flex flex-col items-center justify-center overflow-hidden">
+  <div className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden ">
     
-    {/* Background Mystical Effect */}
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-amber-500/10 blur-3xl rounded-full animate-pulse"></div>
+    {/* --- NEW BACKGROUND START --- */}
+    <div className="absolute inset-0 z-0">
+      {/* 1. Base Dark Background */}
+      <div className="absolute inset-0 "></div>
 
-    {/* Logo Container */}
+      {/* 2. Hand Image */}
+      <div className="absolute inset-0 flex items-end justify-center">
+        <img 
+          src="https://res.cloudinary.com/ddnpzsybs/image/upload/v1768736469/IMG_20260118_170740_xtbyel.jpg" 
+          alt="Mystic Hand" 
+          className="w-full h-full object-cover object-bottom opacity-80" 
+        />
+      </div>
+
+      {/* 3. Spinning Chakra */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex justify-center items-center">
+        <img 
+          src="https://res.cloudinary.com/ddnpzsybs/image/upload/v1768795033/1000117864-removebg-preview_ustao2.png" 
+          alt="Mystic Chakra" 
+          className="w-full h-full object-cover object-bottom opacity-50 animate-[spin_60s_linear_infinite] mix-blend-plus-lighter" 
+        />
+      </div>
+      
+      {/* Overlay to darken it slightly for text readability */}
+      <div className="absolute inset-0 bg-[#050A30] "></div>
+    </div>
+    {/* --- NEW BACKGROUND END --- */}
+
+    {/* Logo Container (Added relative z-10 to keep it above background) */}
     <div className="relative flex flex-col items-center z-10 space-y-2">
+      
+      {/* Background Mystical Effect (Existing) */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-amber-500/10 blur-3xl rounded-full animate-pulse"></div>
+
       {/* Animated Icon */}
       <div className="relative">
          {/* Glow behind icon */}
@@ -95,7 +126,9 @@ const AppContent = () => {
         style={{ top: isNoLayoutPage ? '0px' : '80px' }} 
         className="z-[100]" // Ensure it's above everything else
       />
-<div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+
+      {/* --- APP BACKGROUND (Always visible in app) --- */}
+      <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
         
         {/* 1. Base Dark Background Color */}
         <div className="absolute inset-0 bg-[#0f172a]"></div>
@@ -104,9 +137,9 @@ const AppContent = () => {
         {/* 'w-full h-full object-cover' ensures it covers the whole screen */}
         <div className="absolute inset-0 flex items-end justify-center">
              <img 
-               src="https://res.cloudinary.com/ddnpzsybs/image/upload/v1768736469/IMG_20260118_170740_xtbyel.jpg" 
+               src="https://res.cloudinary.com/ddnpzsybs/image/upload/v1768823162/IMG_20260119_171503_mufltr.jpg" 
                alt="Mystic Hand" 
-               className="w-full h-full object-cover object-bottom opacity-80" 
+               className="w-full h-full object-cover object-bottom " 
              />
         </div>
 
@@ -114,15 +147,16 @@ const AppContent = () => {
         {/* Placed AFTER hand div so it appears ON TOP */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex justify-center items-center">
            <img 
-             src="https://res.cloudinary.com/ddnpzsybs/image/upload/v1768466741/chakra_uvl240.png" 
+             src="https://res.cloudinary.com/ddnpzsybs/image/upload/v1768795033/1000117864-removebg-preview_ustao2.png" 
              alt="Mystic Chakra" 
              // mix-blend-plus-lighter adds a glowing effect over the hand
-             className="w-full h-full object-cover object-bottom opacity-50 animate-[spin_60s_linear_infinite] mix-blend-plus-lighter" 
+             className="w-full h-full object-cover object-bottom  animate-[spin_60s_linear_infinite] mix-blend-plus-lighter" 
            />
         </div>
 
       </div>
-      <div className="min-h-screen bg-slate-800/40 text-white font-[Inter]">
+
+      <div className="min-h-screen bg-slate-900/40 text-white font-[Inter]">
         
         {/* Navbar */}
         {!isNoLayoutPage && <Navbar />}

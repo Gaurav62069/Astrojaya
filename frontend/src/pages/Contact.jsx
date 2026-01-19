@@ -69,8 +69,8 @@ const Contact = () => {
             
             {/* Info Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors group">
-                <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-slate-900 transition-colors">
+              <div className="bg-slate-800/50 backdrop-blur-md  p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors group">
+                <div className="w-12 h-12 bg-slate-800  rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-slate-900 transition-colors">
                   <Phone className="text-amber-400 group-hover:text-slate-900" />
                 </div>
                 <h4 className="text-white font-bold mb-1">Phone</h4>
@@ -78,7 +78,7 @@ const Contact = () => {
                 <p className="text-gray-500 text-xs mt-1">Mon-Fri 9am to 6pm</p>
               </div>
 
-              <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors group">
+              <div className="bg-slate-800/50 backdrop-blur-md p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors group">
                 <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-slate-900 transition-colors">
                   <Mail className="text-amber-400 group-hover:text-slate-900" />
                 </div>
@@ -87,7 +87,7 @@ const Contact = () => {
                 <p className="text-gray-500 text-xs mt-1">Online 24/7</p>
               </div>
 
-              <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors group">
+              <div className="bg-slate-800/50 backdrop-blur-md p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors group">
                 <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-slate-900 transition-colors">
                   <MapPin className="text-amber-400 group-hover:text-slate-900" />
                 </div>
@@ -96,7 +96,7 @@ const Contact = () => {
                 <p className="text-gray-500 text-xs mt-1">Maharashtra, India</p>
               </div>
 
-              <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors group">
+              <div className="bg-slate-800/50 backdrop-blur-md p-6 rounded-xl border border-slate-700 hover:border-amber-500/50 transition-colors group">
                 <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-slate-900 transition-colors">
                   <Clock className="text-amber-400 group-hover:text-slate-900" />
                 </div>
@@ -112,7 +112,7 @@ const Contact = () => {
                <img 
                  src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop" 
                  alt="Map Background" 
-                 className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale"
+                 className="absolute inset-0 w-full h-full object-cover opacity-80 grayscale"
                />
                <div className="relative z-20 text-center p-6 border border-amber-500/30 bg-black/50 backdrop-blur-sm rounded-xl">
                   <Sparkles className="w-8 h-8 text-amber-400 mx-auto mb-2" />

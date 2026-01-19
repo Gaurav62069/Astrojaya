@@ -58,7 +58,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="w-full max-w-5xl h-[600px] flex rounded-2xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900/50">
+      <div className="w-full max-w-5xl h-[600px] flex rounded-2xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-md">
         
         {/* Left Side (Image & Branding) */}
         <div className="hidden md:flex w-1/2 relative flex-col justify-between p-12 text-white bg-black">

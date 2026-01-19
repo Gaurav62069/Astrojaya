@@ -7,10 +7,10 @@ const About = () => {
   const astrologers = [
     {
       id: 1,
-      name: "Acharya Apna",
-      title: "Vedic Astrology & Vastu Expert",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop",
-      intro: "Acharya Apna is a renowned Vedic Astrologer with over 15 years of experience. He specializes in Kundli analysis, matchmaking, and Vastu Shastra. His remedies are simple yet effective, helping thousands of people find direction in their careers and personal lives.",
+      name: "Jaya Pandey",
+      title: "Palm Reader, Vedic Astrologer & Vastu Expert",
+      image: "https://res.cloudinary.com/ddnpzsybs/image/upload/v1768795033/IMG-20260118-WA0019_jkfljp.jpg",
+      intro: "Jaya Ji is a renowned Vedic Astrologer with over 15 years of experience. she specializes in Palmistry, Kundli analysis, matchmaking, and Vastu Shastra. Her remedies are simple yet effective, helping thousands of people find direction in their life and career .",
       exp: "15+ Years Exp",
       rating: "4.9"
     },
@@ -60,7 +60,23 @@ const About = () => {
       rating: "4.8"
     }
   ];
-
+const handleChatClick = () => {
+    const user = localStorage.getItem("user"); // Check local storage
+    
+    if (!user) {
+      // Agar User Login Nahi Hai -> Alert & Redirect
+      showAlert(
+        "Login Required 🔒",                     // Title
+        "To chat with our premium Astrologers, you need to login first.", // Message
+        "warning",                               // Type (warning/error/success)
+        () => navigate("/login")                 // Action after clicking OK
+      );
+      navigate("/login");
+    } else {
+      // Agar User Login Hai -> Open WhatsApp
+      window.open('https://wa.me/919541371359', '_blank');
+    }
+  };
   return (
     <div className="min-h-screen pt-24 pb-12 text-white px-4 md:px-8">
       
@@ -155,7 +171,7 @@ const About = () => {
                 {/* Contact Buttons */}
                 <div className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
                     <button className="flex items-center gap-2 px-6 py-3 bg-amber-500 text-slate-900 font-bold rounded-xl hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20">
-                        <MessageCircle size={18} /> Chat Now
+                        <MessageCircle size={18}/> Chat Now
                     </button>
                     <button className="flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-bold rounded-xl hover:bg-white/10 transition-colors">
                         <Phone size={18} /> Call Now

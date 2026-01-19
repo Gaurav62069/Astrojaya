@@ -19,10 +19,11 @@ body {
 
   /* --- NOTE: Static Background Removed --- */
   /* Purani image hata di gayi hai taaki App.jsx wala animated background dikhe */
-  /* background-image: url('/bg-palm.jpg'); */
-  
+  /* background-image: url('https://unsplash.com/photos/blue-sunny-sky-BGXhuJIbx78');
+  height: 100vh;
+  width: 100vw; */
   /* Base background color (just in case) */
-  background-color: var(--color-astro-dark); 
+  background: ""; 
 }
 
 /* Custom Scrollbar */
@@ -41,4 +42,14 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-astro-gold);
+}
+.swiper-pagination-bullet{
+  background-color: rgb(253, 252, 252) !important;
+  padding: 6px !important;
+  opacity: 1 !important;
+
+}
+.swiper-pagination-bullet-active{
+  background-color: orange !important;
+  padding: 7px !important;
 }

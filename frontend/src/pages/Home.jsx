@@ -26,8 +26,8 @@ const Home = () => {
     },
     {
       icon: Hand,
-      title: "AI Palmistry",
-      description: "Scan your palm using our advanced AI to reveal career, health, and fate lines.",
+      title: "Palmistry",
+      description: "Scan your palm using our astrologers to reveal career, health, and fate lines.",
       link: "/palmistry"
     },
     {
@@ -84,7 +84,7 @@ const Home = () => {
             </p>
             <p className="text-gray-400 leading-relaxed">
               Whether you are seeking answers about your career, love life, or health, our expert 
-              astrology and AI-powered tools are here to light your path. Experience the power of 
+              astrology is here to light your path. Experience the power of 
               traditional Jyotish Shastra combined with precise calculations.
             </p>
             

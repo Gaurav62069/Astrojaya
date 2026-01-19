@@ -18,7 +18,7 @@ const slides = [
     id: 1,
     image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2094&auto=format&fit=crop", 
     title: "Unlock Your Destiny",
-    subtitle: "Vedic Astrology & Modern AI combined to guide your path.",
+    subtitle: "Vedic Astrology to guide your path.",
     btnText: "Get Free Horoscope",
     link: "/horoscope",
     isAd: true
@@ -28,7 +28,7 @@ const slides = [
     image: "https://res.cloudinary.com/ddnpzsybs/image/upload/v1768466745/palm_y0fftu.jpg", 
     title: "Palm Reading",
     subtitle: "Scan your hand from 4 angles and reveal hidden secrets.",
-    btnText: "Try AI Scan Now",
+    btnText: "Scan Now",
     link: "/palmistry",
     isAd: true
   },

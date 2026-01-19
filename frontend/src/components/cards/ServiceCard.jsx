@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 
 const ServiceCard = ({ icon: Icon, title, description, link }) => {
   return (
-    <div className="group relative p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/50 hover:shadow-[0_0_30px_rgba(251,191,36,0.15)] overflow-hidden">
+    <div className="group relative p-6 rounded-xl border border-white/10 bg-white/10 backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-amber-500/50 hover:shadow-[0_0_30px_rgba(251,191,36,0.15)] overflow-hidden">
       
       {/* Glossy Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>

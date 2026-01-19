@@ -28,7 +28,7 @@ const Tarot = () => {
         </p>
         
         <p className="text-gray-400 mb-8 leading-relaxed max-w-lg mx-auto">
-          We are building an AI-powered Tarot reading experience to help you find answers to your life's deepest questions.
+          We are building an Tarot reading experience to help you find answers to your life's deepest questions.
         </p>
 
         {/* Button */}

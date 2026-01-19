@@ -20,7 +20,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-sm leading-relaxed text-gray-400">
-              Guiding you through the stars. We combine ancient Vedic wisdom with modern AI technology to provide accurate life predictions.
+              Guiding you through the stars. We combine ancient Vedic wisdom to provide accurate life predictions.
             </p>
             <div className="flex space-x-4 pt-2">
               <a href="#" className="p-2 bg-slate-800 rounded-full hover:bg-amber-500 hover:text-slate-900 transition-all">
@@ -38,7 +38,7 @@ const Footer = () => {
           {/* Column 2: Quick Links */}
           <div>
             <h3 className="text-white font-bold text-lg mb-6 font-[Cinzel]">Quick Links</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 ">
               <li><Link to="/" className="hover:text-amber-400 transition-colors flex items-center gap-2"><ArrowRight size={14}/> Home</Link></li>
               <li><Link to="/about" className="hover:text-amber-400 transition-colors flex items-center gap-2"><ArrowRight size={14}/> About Us</Link></li>
               <li><Link to="/services" className="hover:text-amber-400 transition-colors flex items-center gap-2"><ArrowRight size={14}/> Our Services</Link></li>
@@ -51,7 +51,7 @@ const Footer = () => {
             <h3 className="text-white font-bold text-lg mb-6 font-[Cinzel]">Our Services</h3>
             <ul className="space-y-3">
               <li><Link to="/horoscope" className="hover:text-amber-400 transition-colors flex items-center gap-2"><ArrowRight size={14}/> Daily Horoscope</Link></li>
-              <li><Link to="/palmistry" className="hover:text-amber-400 transition-colors flex items-center gap-2"><ArrowRight size={14}/> AI Palm Reading</Link></li>
+              <li><Link to="/palmistry" className="hover:text-amber-400 transition-colors flex items-center gap-2"><ArrowRight size={14}/> Palm Reading</Link></li>
               <li><Link to="/kundli" className="hover:text-amber-400 transition-colors flex items-center gap-2"><ArrowRight size={14}/> Kundli Matching</Link></li>
               <li><Link to="/tarot" className="hover:text-amber-400 transition-colors flex items-center gap-2"><ArrowRight size={14}/> Tarot Reading</Link></li>
             </ul>
